@@ -3,7 +3,7 @@
 from model import db, User, Recipe, Favorite, connect_to_db
 
 
-def create_user(email, password)
+def create_user(email, password):
     """Create and return a new user."""
 
     user = User(email=email, password=password) 
@@ -11,7 +11,7 @@ def create_user(email, password)
     return user
 
 
-def create_recipe(spoonacular_id, title)
+def create_recipe(spoonacular_id, title):
     """Create and return a new recipe."""
 
     recipe = Recipe(spoonacular_id=spoonacular_id, title=title) 
@@ -19,7 +19,7 @@ def create_recipe(spoonacular_id, title)
     return recipe
 
 
-def create_favorite(user_id, spoonacular_id)
+def create_favorite(user_id, spoonacular_id):
     """Create and return a new recipe."""
 
     favorite = Favorite(user_id=user_id, spoonacular_id=spoonacular_id) 

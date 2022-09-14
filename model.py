@@ -48,7 +48,7 @@ class Favorite(db.Model):
 
 
 
-def connect_to_db(app, db_name):
+def connect_to_db(app, db_name="lunchdb"):
     """Connect database to Flask app."""
 
     app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql:///{db_name}"
@@ -59,10 +59,12 @@ def connect_to_db(app, db_name):
     db.app = app
     db.init_app(app)
 
+    print("Connected to database!")
+
 
 if __name__ == "__main__":
     from flask import Flask
 
     app = Flask(__name__)
-    connect_to_db(app, "testdb")
+    connect_to_db(app)
 
