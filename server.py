@@ -6,7 +6,6 @@ import crud
 
 from jinja2 import StrictUndefined
 
-
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
@@ -40,7 +39,9 @@ def create_user():
 
 @app.route("/login", methods=['POST'])
 def user_login():
-    """ Show login form """
+    """ Show login form
+    
+    Pull data from login form """
 
     email = request.form.get('email')
     password = request.form.get('password')
@@ -50,12 +51,22 @@ def user_login():
         flash("The email or password you entered was incorrect.")
     else:
         # Log in user by storing the user email in session
-        session['user_email'] = user.email
-        flash(F"Welcome back, {user.email}!")
+        session['user_email'] = user.email 
+        flash("Logged In!")
+        # flash(F"Welcome back, {user.email}!") # save user by primary key, greet user by name??
 
-    return redirect('/')
+    return redirect('/profile')
 
-# login route will pull info from login form
+
+@app.route("/profile")
+def show_profile(user_id):
+    """Display user's profile page"""
+
+    user = crud.get_user_by_id(user_id)
+
+    return render_template("user-profile.html", user=user)
+
+
 
 
 if __name__ == "__main__":
