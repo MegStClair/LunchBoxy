@@ -18,10 +18,11 @@ def homepage():
     return render_template('homepage.html')
 
 
-@app.route('/users', methods=['POST'])
+@app.route('/create-acct', methods=['POST'])
 def create_user():
     """Create a new user account"""
 
+    name = request.form.get('name')
     email = request.form.get('email')
     password = request.form.get('password')
 
@@ -59,17 +60,20 @@ def user_login():
 
 
 @app.route("/profile")
-def show_profile(user_id):
+def show_profile():
     """Display user's profile page"""
+    if 'user_email' in session:
+        email = session['user_email']
+        user = crud.get_user_by_email(email)
+        return render_template("profile.html", name=user.name)
 
-    user = crud.get_user_by_id(user_id)
-
-    return render_template("user-profile.html", user=user)
-
+    else:
+        flash("User not logged in")
+        return redirect ('/login')
 
 
 
 if __name__ == "__main__":
-    # connect_to_db(app)
+    connect_to_db(app)
     app.run(host="0.0.0.0", debug=True)
 

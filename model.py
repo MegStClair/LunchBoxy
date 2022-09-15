@@ -12,6 +12,7 @@ class User(db.Model):
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
 
     favorites = db.relationship('Favorite', back_populates='user')
 
@@ -67,4 +68,3 @@ if __name__ == "__main__":
 
     app = Flask(__name__)
     connect_to_db(app)
-

@@ -9,22 +9,18 @@ import crud
 from model import db, User, Recipe, Favorite, connect_to_db
 import server
 
-os.system("dropdb lunchdb")
-os.system("createdb lunchdb")
 
-connect_to_db(server.app)
-db.create_all()
 
 
 def example_data():
-    aiden = User(email="aiden@email.com", password="password")
+    aiden = User(email="aiden@email.com", password="password", name="Aiden")
     sandwich = Recipe(title="sandwich")
     aiden_fav = Favorite(user=aiden, recipe=sandwich)
     db.session.add_all([aiden, sandwich])
 
     soup = Recipe(title="soup")
     db.session.add(soup)
-    adrian = User(email="adrian@email.com", password="password")
+    adrian = User(email="adrian@email.com", password="password", name="Adrian")
     db.session.add(adrian)
     aiden_fav = Favorite(user=adrian, recipe=soup)
     db.session.add(aiden_fav)
@@ -33,4 +29,10 @@ def example_data():
 
     
 if __name__ == "__main__":
+    os.system("dropdb lunchdb")
+    os.system("createdb lunchdb")
+
+    connect_to_db(server.app)
+    db.drop_all()
+    db.create_all()
     example_data()

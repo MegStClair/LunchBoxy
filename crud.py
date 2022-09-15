@@ -6,18 +6,18 @@ from model import db, User, Recipe, Favorite, connect_to_db
 def create_user(email, password):
     """Create and return a new user."""
 
-    user = User(email=email, password=password) 
+    user = User(email=email, password=password, name=password) 
 
     return user
 
 
-def get_user(user_id):
-    """Return user by user_id"""
+def get_user_by_id(user_id):
+    """Return user by user_id/primary key"""
 
     return User.query.get(user_id)
 
     # return a user by their user_id
-    
+
 
 def get_user_by_email(email):
     """Return user by email"""
@@ -25,6 +25,11 @@ def get_user_by_email(email):
     return User.query.filter(User.email == email).first()
 
     # return a user with that email if it exists; otherwise return None
+
+
+def get_user_name(name):
+
+    return User.query.filter(User.name == name).first()
 
 
 def create_recipe(spoonacular_id, title):
