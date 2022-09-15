@@ -32,5 +32,5 @@ def example_data():
     db.session.commit()
 
     
-
-# query db to get users, on psql select,from queries
+if __name__ == "__main__":
+    example_data()

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Lunch Planning Site{% endblock %}
+
+{% block body %}
+  <h1>Welcome!</h1>
+
+  <!-- <h2>Navigation</h2>
+  <ul>
+
+    <li><a href="/login">Log In</a></li>
+    <li><a href="/new-user">Create Account</a></li>
+
+    </ul> -->
+
+    <!-- <h2>Create an Account</h2>
+    <form action="/users" method="POST">
+    <p>Email: <input type="text" name="email" id="create-email"></p>
+    <p>Password: <input type="password" name="password" id="create-pw"></p>
+    <p><input type="submit"></p>
+    </form> -->
+
+    <form class="create-acct" form action="/users" method="POST">
+        <h3 id="create-acct-heading">Create Account</h3>
+        <div>
+            <p>Email: <input type="text" name="email" id="create-email"></p>
+            <p>Password: <input type="password" name="password" id="create-pw"></p>
+            <p><button type="submit" id="create-btn">Submit</button></p>
+        </div>
+    </form>
+    
+    <br>
+
+    <form class="login-form" form action="/login" method="POST">
+        <h3 id="login-form-heading">Log In</h3>
+        <div>
+            <p>Email: <input type="text" name="email" id="login-email"></p>
+            <p>Password: <input type="password" name="password" id="login-pw"></p>
+            <p><button type="submit" id="login-btn">Sign In</button></p>
+        </div>
+    </form>
+
+
+   
+{% endblock %}

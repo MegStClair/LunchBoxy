@@ -11,6 +11,22 @@ def create_user(email, password):
     return user
 
 
+def get_user(user_id):
+    """Return user by user_id"""
+
+    return User.query.get(user_id)
+
+    # return a user by their user_id
+    
+
+def get_user_by_email(email):
+    """Return user by email"""
+
+    return User.query.filter(User.email == email).first()
+
+    # return a user with that email if it exists; otherwise return None
+
+
 def create_recipe(spoonacular_id, title):
     """Create and return a new recipe."""
 
