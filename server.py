@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, flash, session, redirect
 from model import connect_to_db, db
 import crud
+import spoonacular
 
 from jinja2 import StrictUndefined
 
@@ -48,13 +49,14 @@ def user_login():
     password = request.form.get('password')
 
     user = crud.get_user_by_email(email)
+
     if not user or user.password != password:
         flash("The email or password you entered was incorrect.")
     else:
         # Log in user by storing the user email in session
         session['user_email'] = user.email 
         flash("Logged In!")
-        # flash(F"Welcome back, {user.email}!") # save user by primary key, greet user by name??
+        
 
     return redirect('/profile')
 
