@@ -3,7 +3,7 @@
 from model import db, User, Recipe, Favorite, connect_to_db
 
 
-def create_user(email, password):
+def create_user(email, password, name):
     """Create and return a new user."""
 
     user = User(email=email, password=password, name=name) 

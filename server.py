@@ -31,7 +31,7 @@ def create_user():
     if user:
         flash("An account with that email already exists. Please try again.")
     else: 
-        user = crud.create_user(email, password)
+        user = crud.create_user(email, password, name)
         db.session.add(user)
         db.session.commit()
         flash("Account created! Please log in.")
