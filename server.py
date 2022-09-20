@@ -3,13 +3,19 @@
 from flask import Flask, render_template, request, flash, session, redirect
 from model import connect_to_db, db
 import crud
-import spoonacular
 
 from jinja2 import StrictUndefined
+
+import os
+import requests
 
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
+
+API_KEY = os.environ['SPOONACULAR_KEY']
+
+
 
 
 @app.route('/')
@@ -21,7 +27,7 @@ def homepage():
 
 @app.route('/create-acct', methods=['POST'])
 def create_user():
-    """Create a new user account"""
+    """ Create a new user account """
 
     name = request.form.get('name')
     email = request.form.get('email')
@@ -63,7 +69,7 @@ def user_login():
 
 @app.route("/profile")
 def show_profile():
-    """Display user's profile page"""
+    """ Display user's profile page """
     if 'user_email' in session:
         email = session['user_email']
         user = crud.get_user_by_email(email)
@@ -73,6 +79,61 @@ def show_profile():
         flash("User not logged in")
         return redirect ('/login')
 
+
+@app.route("/search")
+def search_recipes():
+    """ Search for recipes """
+
+    return render_template('search.html')
+
+
+@app.route("/search-results")
+def show_recipes():
+    """ Get recipes based on params """
+
+    diet = request.args.get("diet")
+    intolerances = request.args.get("intolerances")
+    maxReadyTime = request.args.get("max-ready-time")
+    exclude = request.args.get("exclude")
+
+    
+    endpoint= 'https://api.spoonacular.com/recipes/complexSearch'
+    # payload = {
+    #     'diet': diet,
+    #     'intolerances': intolerances,
+    #     'maxReadyTime': maxReadyTime,
+    #     'excludeIngredients': exclude}
+
+    # https://api.spoonacular.com/recipes/complexSearch/recipes/complexSearch?diet=vegetarian&intolerances=gluten&maxReadyTime=20&excludeIngredients=eggs
+
+    query_params = "?diet=" + str(diet) + "&intolerances=" + str(intolerances) + "&maxReadyTime=" + str(maxReadyTime) + "&excludeIngredients=" + str(exclude)
+    query = endpoint + query_params
+
+    response = requests.get(query)
+    # response = requests.get(endpoint, params=payload)
+    recipes = response.json()
+  
+    # if '_embedded' in data:
+    #     results = data['_embedded']['results']
+    # else:
+    #     results = []
+
+    results_dic = {}
+    
+    for recipe in recipes:
+        recipe_id = recipe['id']
+        details = get_recipe_by_id(recipe_id)
+        results_dic[results_dic] = details
+
+    return render_template('search-results.html', recipes=recipes)
+
+
+
+# @app.route("/favorites")
+# def saved_recipes():
+#     """ Display user's favorite recipes """
+#     favorites = Favorite. 
+#  need to generate recipes first, creating searcch route first
 
 
 if __name__ == "__main__":

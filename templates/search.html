@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Lunch Planning Site{% endblock %}
+
+{% block body %}
+
+<div> 
+    <h2> Recipe Search </h2>
+
+    <form action="/search-results" method="GET">
+        <label for="diet">Diet Restrictions: </label>
+        <select name="diet" id="diet">
+            <option value="" disabled selected hidden>...</option>
+            <option value="none">None</option>
+            <option value="gluten-free">Gluten Free</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="lacto-veg">Lacto-Vegetarian</option>
+            <option value="pesc">Pescetarian</option>
+        </select>
+
+       <!-- vvvv IMPROVE TO BE ABLE TO SELECT MULTIPLE??? vvvv -->
+        <label for="intolerances">Intolerances: </label>
+        <select name="intolerances" id="intolerances">
+            <option value="" disabled selected hidden>...</option>
+            <option value="none">None</option>
+            <option value="gluten-dairy">Dairy</option>
+            <option value="egg">Egg</option>
+            <option value="gluten">Gluten</option>
+            <option value="grain">Grain</option>
+            <option value="peanut">Peanut</option>
+            <option value="seafood">Seafood</option>
+            <option value="sesame">Sesame</option>
+            <option value="shellfish">Shellfish</option>
+            <option value="soy">Soy</option>
+            <option value="nuts">Tree Nut</option>
+            <option value="wheat">Wheat</option>
+        </select>
+        
+        <label for="max-ready-time">Max Ready Time: </label>
+        <select name="max-ready-time" id="max-ready-time">
+            <option value="" disabled selected hidden>...</option>
+            <option value="10">10 min</option>
+            <option value="20">20 min</option>
+            <option value="30">30 min</option>
+        </select><br><br>
+        
+        <label for="exclude">Exclude Ingredients: </label>
+        <input type="text" id="exclude" name="exclude">
+
+        
+
+        
+        <button type="submit" id="restrictions-btn">Submit</button>
+    </form>
+</div>    
+
+
+{% endblock %} 

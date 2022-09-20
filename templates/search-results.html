@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Search Results{% endblock %}
+
+{% block body %}
+
+
+<div id="search-results">
+
+    {% if not in recipes %} 
+        <div id="no-results">
+            <h3>Sorry, there are no recipes with those parameters.
+                <br><br>
+                <a href="/search">Try again?</a></li>
+            </h3>
+        </div>
+    <% endif %> 
+
+    <div class="container" id="show-results">
+        {% for id, details in recipes.items() %}
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="recipe">{{ details['title'] }}</h2><br>
+                    <div class="recipe">
+                    <img src="{{ details['image'] }}" style="width: 50%">
+                </div>
+                <h4>Ready in: {{ details['readyInMinutes'] }}</h4>
+                <h4>Servings: {{ details['servings'] }}</h4><br><br>
+                <h3>Instructions:</h3>
+                    <p>{{ details['instructions'] }}</p><br><br>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+</div>
+
+            {% endfor %}
+  
+         
+
+{% endblock %} 
