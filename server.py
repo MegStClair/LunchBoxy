@@ -15,7 +15,25 @@ app.jinja_env.undefined = StrictUndefined
 
 API_KEY = os.environ['SPOONACULAR_KEY']
 
-
+FAKE_SPOONACULAR = {
+    "offset": 0,
+    "number": 2,
+    "results": [
+        {
+            "id": 716429,
+            "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
+            "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
+            "imageType": "jpg",
+        },
+        {
+            "id": 715538,
+            "title": "What to make for dinner tonight?? Bruschetta Style Pork & Pasta",
+            "image": "https://spoonacular.com/recipeImages/715538-312x231.jpg",
+            "imageType": "jpg",
+        }
+    ],
+    "totalResults": 86
+}
 
 
 @app.route('/')
@@ -112,20 +130,23 @@ def show_recipes():
     response = requests.get(query)
     # response = requests.get(endpoint, params=payload)
     recipes = response.json()
-  
+    recipes = FAKE_SPOONACULAR # FIX ME!!!!!
+
     # if '_embedded' in data:
     #     results = data['_embedded']['results']
     # else:
     #     results = []
 
     results_dic = {}
-    
-    for recipe in recipes:
-        recipe_id = recipe['id']
-        details = get_recipe_by_id(recipe_id)
-        results_dic[results_dic] = details
+    print('recipes is', recipes)
 
-    return render_template('search-results.html', recipes=recipes)
+    for recipe in recipes['results']:
+        print("recipe is", recipe)
+        recipe_id = recipe['id']
+        # details = get_recipe_by_id(recipe_id)
+        # results_dic[results_dic] = details
+
+    return render_template('search-results.html', recipes=recipes['results'])
 
 
 
