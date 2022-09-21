@@ -6,7 +6,7 @@
 <div> 
     <h2> Recipe Search </h2>
 
-    <form action="/search-results" method="GET">
+    <form id="restrictions">
         <label for="diet">Diet Restrictions: </label>
         <select name="diet" id="diet">
             <option value="" disabled selected hidden>...</option>
@@ -50,9 +50,12 @@
         
 
         
-        <button type="submit" id="restrictions-btn">Submit</button>
+        <button type="submit">Submit</button>
     </form>
 </div>    
 
+<div id="search-results"></div>
+
+<script src="/static/generate-search.js"></script>
 
 {% endblock %} 

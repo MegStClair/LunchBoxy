@@ -1,6 +1,6 @@
 """Server for lunch planning app"""
 
-from flask import Flask, render_template, request, flash, session, redirect
+from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import connect_to_db, db
 import crud
 
@@ -105,7 +105,7 @@ def search_recipes():
     return render_template('search.html')
 
 
-@app.route("/search-results")
+# @app.route("/search-results")
 def show_recipes():
     """ Get recipes based on params """
 
@@ -124,12 +124,12 @@ def show_recipes():
 
     # https://api.spoonacular.com/recipes/complexSearch/recipes/complexSearch?diet=vegetarian&intolerances=gluten&maxReadyTime=20&excludeIngredients=eggs
 
-    query_params = "?diet=" + str(diet) + "&intolerances=" + str(intolerances) + "&maxReadyTime=" + str(maxReadyTime) + "&excludeIngredients=" + str(exclude)
-    query = endpoint + query_params
+    # query_params = "?diet=" + str(diet) + "&intolerances=" + str(intolerances) + "&maxReadyTime=" + str(maxReadyTime) + "&excludeIngredients=" + str(exclude)
+    # query = endpoint + query_params
 
-    response = requests.get(query)
-    # response = requests.get(endpoint, params=payload)
-    recipes = response.json()
+    # response = requests.get(query)
+    # # response = requests.get(endpoint, params=payload)
+    # recipes = response.json()
     recipes = FAKE_SPOONACULAR # FIX ME!!!!!
 
     # if '_embedded' in data:
@@ -148,6 +148,11 @@ def show_recipes():
 
     return render_template('search-results.html', recipes=recipes['results'])
 
+
+@app.route("/api/search-results", methods=['POST'])
+def show_results():
+
+    return jsonify(FAKE_SPOONACULAR)
 
 
 # @app.route("/favorites")
