@@ -20,17 +20,22 @@ class User(db.Model):
     def __repr__(self):
         return f"<User user_id={self.user_id} email={self.email}"
 
+
 class Recipe(db.Model):
 
     __tablename__ = 'recipes'
 
-    spoonacular_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    tag = 
     title = db.Column(db.String)
+    ingredients = 
+    instructions =
 
     favorites = db.relationship('Favorite', back_populates='recipe')
 
     def __repr__(self):
         return f"<Recipe spoonacular_id={self.spoonacular_id} title={self.title}"
+
 
 class Favorite(db.Model):
 
