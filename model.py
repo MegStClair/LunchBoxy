@@ -26,10 +26,12 @@ class Recipe(db.Model):
     __tablename__ = 'recipes'
 
     recipe_id = db.Column(db.Integer, primary_key=True)
-    tag = db.Column(db.String)
-    title = db.Column(db.String)
-    ingredients = db.Column(db.String)
-    instructions = db.Column(db.String)
+    tag = db.Column(db.String, nullable=False)
+    title = db.Column(db.String, nullable=False)
+    image = db.Column(db.String)
+    ingredients = db.Column(db.String, nullable=False)
+    instructions = db.Column(db.String, nullable=False)
+    tips = db.Column(db.String)
 
     favorites = db.relationship('Favorite', back_populates='recipe')
 
@@ -54,7 +56,6 @@ class Favorite(db.Model):
         return f"<Favorite recipe_id={self.recipe_id} user_id={self.user_id}"
 
 
-
 def connect_to_db(app, db_name="lunchdb"):
     """Connect database to Flask app."""
 
@@ -74,3 +75,4 @@ if __name__ == "__main__":
 
     app = Flask(__name__)
     connect_to_db(app)
+
