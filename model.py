@@ -25,16 +25,16 @@ class Recipe(db.Model):
 
     __tablename__ = 'recipes'
 
-    id = db.Column(db.Integer, primary_key=True)
-    tag = 
+    recipe_id = db.Column(db.Integer, primary_key=True)
+    tag = db.Column(db.String)
     title = db.Column(db.String)
-    ingredients = 
-    instructions =
+    ingredients = db.Column(db.String)
+    instructions = db.Column(db.String)
 
     favorites = db.relationship('Favorite', back_populates='recipe')
 
     def __repr__(self):
-        return f"<Recipe spoonacular_id={self.spoonacular_id} title={self.title}"
+        return f"<Recipe recipe_id={self.recipe_id} title={self.title}"
 
 
 class Favorite(db.Model):
@@ -43,7 +43,7 @@ class Favorite(db.Model):
 
     favorite_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
-    spoonacular_id = db.Column(db.Integer, db.ForeignKey('recipes.spoonacular_id'))
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.recipe_id'))
 
     user = db.relationship('User', back_populates='favorites')
     recipe = db.relationship('Recipe', back_populates='favorites')
@@ -51,7 +51,7 @@ class Favorite(db.Model):
 
 
     def __repr__(self):
-        return f"<Favorite spoonacular_id={self.spoonacular_id} user_id={self.user_id}"
+        return f"<Favorite recipe_id={self.recipe_id} user_id={self.user_id}"
 
 
 

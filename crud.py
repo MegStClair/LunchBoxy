@@ -32,18 +32,18 @@ def get_user_name(name):
     return User.query.filter(User.name == name).first()
 
 
-def create_recipe(spoonacular_id, title):
+def create_recipe(recipe_id, title):
     """Create and return a new recipe."""
 
-    recipe = Recipe(spoonacular_id=spoonacular_id, title=title) 
+    recipe = Recipe(recipe_id=recipe_id, title=title) 
 
     return recipe
 
 
-def create_favorite(user_id, spoonacular_id):
+def create_favorite(user_id, recipe_id):
     """Create and return a new recipe."""
 
-    favorite = Favorite(user_id=user_id, spoonacular_id=spoonacular_id) 
+    favorite = Favorite(user_id=user_id, recipe_id=recipe_id) 
 
     return favorite
 
