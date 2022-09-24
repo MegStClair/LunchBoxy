@@ -3,6 +3,10 @@
 from model import db, User, Recipe, Favorite, connect_to_db
 
 
+import json
+
+
+
 def create_user(email, password, name):
     """Create and return a new user."""
 
@@ -32,20 +36,44 @@ def get_user_name(name):
     return User.query.filter(User.name == name).first()
 
 
-def create_recipe(recipe_id, title):
+def create_recipe(tag, title, image, ingredients, instructions, tips):
     """Create and return a new recipe."""
 
-    recipe = Recipe(recipe_id=recipe_id, title=title) 
+    recipe = Recipe(tag=tag, 
+                    title=title, 
+                    image=image, 
+                    ingredients=ingredients, 
+                    instructions=instructions, 
+                    tips=tips
+    ) 
 
     return recipe
 
 
+def get_recipes():
+    """ Return all recipes """
+
+    return Recipe.query.all()
+
+
+def get_recipe_by_id(recipe_id):
+    """ Return recipe by primary key """
+
+   return Recipe.query.get(recipe_id)
+
+
 def create_favorite(user_id, recipe_id):
-    """Create and return a new recipe."""
+    """Create and return a new favorite."""
 
     favorite = Favorite(user_id=user_id, recipe_id=recipe_id) 
 
     return favorite
+
+
+# def remove_favorite(user_id, recipe_id):
+#     """ Remove a favorite """
+
+#    return 
 
 
 

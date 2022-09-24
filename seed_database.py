@@ -2,13 +2,33 @@
 
 import os 
 import json
-from random import choice, randint
-from datetime import datetime
 
 import crud
 from model import db, User, Recipe, Favorite, connect_to_db
 import server
 
+
+# Load lunch data from JSON file
+with open("data/lunch_db.json") as f:
+    lunch_data = json.loads(f.read())
+
+# Create items, store them in list so we can use them to create meals
+lunches_in_db = []
+for recipe in lunch_data:
+    tag, title, image, ingredients, instructions, tips = (
+        recipe["tag"],
+        recipe["title"],
+        recipe["image"],
+        recipe["ingredients"],
+        recipe["instructions"],
+        recipe["tips"],
+    )
+
+    db_lunch = crud.create_recipe(tag, title, image, ingredients, instructions, tips)
+    lunches_in_db.append(db_lunch)
+
+model.db.session.add_all(lunches_in_db)
+model.db.session.commit()
 
 
 

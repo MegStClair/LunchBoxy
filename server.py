@@ -3,6 +3,8 @@
 from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import connect_to_db, db
 import crud
+from random import choice 
+import json 
 
 from jinja2 import StrictUndefined
 
@@ -12,28 +14,6 @@ import requests
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
-
-API_KEY = os.environ['SPOONACULAR_KEY']
-
-FAKE_SPOONACULAR = {
-    "offset": 0,
-    "number": 2,
-    "results": [
-        {
-            "id": 716429,
-            "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
-            "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
-            "imageType": "jpg",
-        },
-        {
-            "id": 715538,
-            "title": "What to make for dinner tonight?? Bruschetta Style Pork & Pasta",
-            "image": "https://spoonacular.com/recipeImages/715538-312x231.jpg",
-            "imageType": "jpg",
-        }
-    ],
-    "totalResults": 86
-}
 
 
 @app.route('/')
@@ -98,44 +78,23 @@ def show_profile():
         return redirect ('/login')
 
 
-@app.route("/search")
-def search_recipes():
-    """ Search for recipes """
+@app.route("/lunch-idea")
+def show_lunch():
+    """ Show 1 lunch idea """
 
-    return render_template('search.html')
+    # num = rand.choice - randomly selects with even distribution one element from list
+
+    recipe = crud.get_recipe_by_id(recipe_id)
+
+    return render_template('lunch-idea.html')
 
 
-# @app.route("/search-results")
+@app.route("/search-results")
 def show_recipes():
     """ Get recipes based on params """
 
-    diet = request.args.get("diet")
-    intolerances = request.args.get("intolerances")
-    maxReadyTime = request.args.get("max-ready-time")
-    exclude = request.args.get("exclude")
+    recipes = LUNCH_DB
 
-    
-    endpoint= 'https://api.spoonacular.com/recipes/complexSearch'
-    # payload = {
-    #     'diet': diet,
-    #     'intolerances': intolerances,
-    #     'maxReadyTime': maxReadyTime,
-    #     'excludeIngredients': exclude}
-
-    # https://api.spoonacular.com/recipes/complexSearch/recipes/complexSearch?diet=vegetarian&intolerances=gluten&maxReadyTime=20&excludeIngredients=eggs
-
-    # query_params = "?diet=" + str(diet) + "&intolerances=" + str(intolerances) + "&maxReadyTime=" + str(maxReadyTime) + "&excludeIngredients=" + str(exclude)
-    # query = endpoint + query_params
-
-    # response = requests.get(query)
-    # # response = requests.get(endpoint, params=payload)
-    # recipes = response.json()
-    recipes = FAKE_SPOONACULAR # FIX ME!!!!!
-
-    # if '_embedded' in data:
-    #     results = data['_embedded']['results']
-    # else:
-    #     results = []
 
     results_dic = {}
     print('recipes is', recipes)

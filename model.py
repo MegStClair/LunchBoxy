@@ -1,4 +1,4 @@
-"""" Model classes"""
+"""" Model classes """
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -25,12 +25,12 @@ class Recipe(db.Model):
 
     __tablename__ = 'recipes'
 
-    recipe_id = db.Column(db.Integer, primary_key=True)
+    recipe_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     tag = db.Column(db.String, nullable=False)
     title = db.Column(db.String, nullable=False)
     image = db.Column(db.String)
-    ingredients = db.Column(db.String, nullable=False)
-    instructions = db.Column(db.String, nullable=False)
+    ingredients = db.Column(db.String)
+    instructions = db.Column(db.String)
     tips = db.Column(db.String)
 
     favorites = db.relationship('Favorite', back_populates='recipe')
