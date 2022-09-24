@@ -2,7 +2,6 @@
 
 from model import db, User, Recipe, Favorite, connect_to_db
 
-
 import json
 
 
@@ -59,7 +58,23 @@ def get_recipes():
 def get_recipe_by_id(recipe_id):
     """ Return recipe by primary key """
 
-   return Recipe.query.get(recipe_id)
+    return Recipe.query.get(recipe_id)
+
+
+def get_recipe_by_tag(tag):
+    """ Return recipe by tag """
+
+    return Recipe.query.get(tag)
+
+
+def get_random_tag(tag):
+    """ Return random object with tag == filling """
+
+    food = Recipe.query.filter(Recipe.tag == tag).all()
+
+    random_food = choice(food)
+
+    return random_food
 
 
 def create_favorite(user_id, recipe_id):

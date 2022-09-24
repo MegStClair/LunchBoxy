@@ -5,6 +5,8 @@
 {% block body %}
 <h1>{{ recipe.title }}</h1>
 
+<img src="{{ recipe.image }}">
+
 <p>
   {{ recipe.ingredients }}
 </p>
@@ -16,6 +18,6 @@
     {{ recipe.tips }}
   </p>
 
-<img src="{{ recipe.image }}">
+
 {% endblock %}
 

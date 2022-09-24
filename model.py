@@ -6,6 +6,7 @@ db = SQLAlchemy()
 
 
 class User(db.Model):
+    """ A user. """
 
     __tablename__ = 'users'
 
@@ -22,6 +23,7 @@ class User(db.Model):
 
 
 class Recipe(db.Model):
+    """ A recipe. """
 
     __tablename__ = 'recipes'
 
@@ -40,6 +42,7 @@ class Recipe(db.Model):
 
 
 class Favorite(db.Model):
+    """ A favorite. """ 
 
     __tablename__ = 'favorites'
 
@@ -50,10 +53,9 @@ class Favorite(db.Model):
     user = db.relationship('User', back_populates='favorites')
     recipe = db.relationship('Recipe', back_populates='favorites')
 
-
-
     def __repr__(self):
         return f"<Favorite recipe_id={self.recipe_id} user_id={self.user_id}"
+
 
 
 def connect_to_db(app, db_name="lunchdb"):
@@ -71,8 +73,9 @@ def connect_to_db(app, db_name="lunchdb"):
 
 
 if __name__ == "__main__":
-    from flask import Flask
+    # from flask import Flask
+    from server import app 
 
-    app = Flask(__name__)
+    # app = Flask(__name__)
     connect_to_db(app)
 

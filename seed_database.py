@@ -7,28 +7,28 @@ import crud
 from model import db, User, Recipe, Favorite, connect_to_db
 import server
 
+def load_data():
+    Load lunch data from JSON file
+    with open("data/lunch_db.json") as f:
+        lunch_data = json.loads(f.read())
 
-# Load lunch data from JSON file
-with open("data/lunch_db.json") as f:
-    lunch_data = json.loads(f.read())
+    # Create items, store them in list so we can use them to create meals
+    lunches_in_db = []
+    for recipe in lunch_data:
+        tag, title, image, ingredients, instructions, tips = (
+            recipe["tag"],
+            recipe["title"],
+            recipe["image"],
+            recipe["ingredients"],
+            recipe["instructions"],
+            recipe["tips"],
+        )
 
-# Create items, store them in list so we can use them to create meals
-lunches_in_db = []
-for recipe in lunch_data:
-    tag, title, image, ingredients, instructions, tips = (
-        recipe["tag"],
-        recipe["title"],
-        recipe["image"],
-        recipe["ingredients"],
-        recipe["instructions"],
-        recipe["tips"],
-    )
+        db_lunch = crud.create_recipe(tag, title, image, ingredients, instructions, tips)
+        lunches_in_db.append(db_lunch)
 
-    db_lunch = crud.create_recipe(tag, title, image, ingredients, instructions, tips)
-    lunches_in_db.append(db_lunch)
-
-model.db.session.add_all(lunches_in_db)
-model.db.session.commit()
+    model.db.session.add_all(lunches_in_db)
+    model.db.session.commit()
 
 
 
@@ -55,4 +55,5 @@ if __name__ == "__main__":
     connect_to_db(server.app)
     db.drop_all()
     db.create_all()
+    load_data()
     example_data()
