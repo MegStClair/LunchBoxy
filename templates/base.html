@@ -14,7 +14,7 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
 
-    {% block head %}{% endblock %}
+  {% block head %}{% endblock %}
   </head>
   <body>
     {% for msg in get_flashed_messages() %}
@@ -22,11 +22,12 @@
       {{ msg }}
     </p>
     {% endfor %}
-    
-    {% block body %}{% endblock %}
+     <!-- Include the page's content with this block. -->
+  {% block body %}
+  {% endblock %}
 
-    {% block after_body %}{% endblock %}
+   <!-- Include any page-specific JavaScript using this block. -->
+   {% block js %}
+   {% endblock %}
   </body>
 </html>
-
-<!-- code to load javascript file -->
