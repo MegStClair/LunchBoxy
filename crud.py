@@ -4,6 +4,8 @@ from model import db, User, Recipe, Favorite, connect_to_db
 
 import json
 
+from random import choice 
+
 
 
 def create_user(email, password, name):
@@ -68,7 +70,7 @@ def get_recipe_by_tag(tag):
 
 
 def get_random_tag(tag):
-    """ Return random object with tag == filling """
+    """ Return random object by tag """
 
     food = Recipe.query.filter(Recipe.tag == tag).all()
 

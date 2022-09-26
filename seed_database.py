@@ -8,7 +8,7 @@ from model import db, User, Recipe, Favorite, connect_to_db
 import server
 
 def load_data():
-    Load lunch data from JSON file
+    # Load lunch data from JSON file
     with open("data/lunch_db.json") as f:
         lunch_data = json.loads(f.read())
 
@@ -27,8 +27,8 @@ def load_data():
         db_lunch = crud.create_recipe(tag, title, image, ingredients, instructions, tips)
         lunches_in_db.append(db_lunch)
 
-    model.db.session.add_all(lunches_in_db)
-    model.db.session.commit()
+    db.session.add_all(lunches_in_db)
+    db.session.commit()
 
 
 
@@ -56,4 +56,4 @@ if __name__ == "__main__":
     db.drop_all()
     db.create_all()
     load_data()
-    example_data()
+  

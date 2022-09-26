@@ -1,23 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ recipe.title }} - Details{% endblock %}
-
 {% block body %}
-<h1>{{ recipe.title }}</h1>
-
-<img src="{{ recipe.image }}">
-
-<p>
-  {{ recipe.ingredients }}
-</p>
-
-<p>
-    {{ recipe.instructions }}
-  </p>
-  <p>
-    {{ recipe.tips }}
-  </p>
-
-
+<div id="container"></div>
+<script src="/static/lunch-idea.jsx" type="text/jsx"></script>
 {% endblock %}
-
