@@ -23,6 +23,7 @@ def homepage():
     return render_template('homepage.html')
 
 
+
 @app.route('/create-acct', methods=['POST'])
 def create_user():
     """ Create a new user account """
@@ -41,6 +42,7 @@ def create_user():
         flash("Account created! Please log in.")
     
     return redirect('/')
+
 
 
 @app.route("/login", methods=['POST'])
@@ -65,6 +67,7 @@ def user_login():
     return redirect('/profile')
 
 
+
 @app.route("/profile", methods=['GET'])
 def show_profile():
     """ Display user's profile page """
@@ -76,6 +79,7 @@ def show_profile():
     else:
         flash("User not logged in")
         return redirect ('/login')
+
 
 
 @app.route("/lunch-idea")     
@@ -107,17 +111,23 @@ def show_lunch_json():
 
     return jsonify(recipes)
 
-    # to allow for re-randomization later: take recipe type in as an argument, get the random tag for it, return 1 recipe at type (insteadof all at once)
+    # to allow for re-randomization later: take recipe type in as an argument, get the random tag for it, return 1 recipe at type (instead of all at once)
 
 
-@app.route("/view-all")     
-def show_all():
+
+@app.route("/view-all")
+def view_all():
     """ Show lunch idea """
 
     return render_template('view-all.html')
 
 
+@app.route("/view-all.json")     
+def view_all_json():
 
+    all_recipes = crud.get_all_by_tag("filling")
+    
+    return jsonify(all_recipes)
 
 
 
@@ -131,6 +141,7 @@ def change_food():
 
 
     return render_template('lunch-idea.html', filling=new_food, crunchy=new_food, fresh=new_food)
+
 
 
 @app.route("/alternate-food.json")

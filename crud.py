@@ -69,6 +69,30 @@ def get_recipe_by_tag(tag):
     return Recipe.query.get(tag)
 
 
+def get_all_by_tag(tag):
+    """ Return all recipes by tag """
+
+    all_by_tag = Recipe.query.filter(Recipe.tag == tag).all()
+
+    meals_list = []
+    
+    for recipe in all_by_tag:
+        meal = {
+            "title": recipe.title, 
+            "image": recipe.image, 
+            "ingredients": recipe.ingredients, 
+            "instructions": recipe.instructions,
+            "tips": recipe.tips
+            }
+        meals_list.append(meal)
+
+    # can iterate recipes here; 
+    # instead of returning list of object, 
+    # will return list of dicts
+
+    return meals_list
+
+
 def get_random_by_tag(tag):
     """ Return random object by tag """
 
