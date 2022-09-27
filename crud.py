@@ -69,7 +69,7 @@ def get_recipe_by_tag(tag):
     return Recipe.query.get(tag)
 
 
-def get_random_tag(tag):
+def get_random_by_tag(tag):
     """ Return random object by tag """
 
     food = Recipe.query.filter(Recipe.tag == tag).all()

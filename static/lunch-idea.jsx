@@ -1,5 +1,5 @@
 // props = title, image, ingredients, instructions, tips
-function RecipeComponent(props) {
+function FillingComponent(props) {
     return (
         <div id="filling">
         <h1>{ props.title }</h1>
@@ -17,6 +17,7 @@ function SidesComponent(props) {
         return (
             <div id="sides">
             <h2>{ props.title }</h2>
+            <img src={ props.image } width={200}/>
             </div>
         );
         }
@@ -25,7 +26,7 @@ function SidesComponent(props) {
 function RecipeContainer(props) {
     return (
         <div id="lunch">
-        <RecipeComponent {...props.filling}/>
+        <FillingComponent {...props.filling}/>
             
             <div id="crunchy">
             <SidesComponent {...props.crunchy}/>
@@ -33,6 +34,10 @@ function RecipeContainer(props) {
     
             <div id="fresh">
             <SidesComponent {...props.fresh}/>
+            </div>
+
+            <div id="fresh2">
+            <SidesComponent {...props.fresh2}/>
             </div>
 
         </div>
@@ -49,4 +54,4 @@ fetch('/lunch-idea.json')
 
 });
 
-    
+// to be able to "change" item- use class on divs and grab elements by class, render stuff in a for loop (avoid rep)

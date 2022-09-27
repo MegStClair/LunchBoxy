@@ -89,9 +89,10 @@ def show_lunch():
 def show_lunch_json():
 
     recipes = {
-    "filling": crud.get_random_tag("filling"),
-    "crunchy": crud.get_random_tag("crunchy"),
-    "fresh": crud.get_random_tag("fresh")
+    "filling": crud.get_random_by_tag("filling"),
+    "crunchy": crud.get_random_by_tag("crunchy"),
+    "fresh": crud.get_random_by_tag("fresh"),
+    "fresh2": crud.get_random_by_tag("fresh")
     }
 
     for tag, recipe in recipes.items():
@@ -105,6 +106,19 @@ def show_lunch_json():
         recipes[tag]=prop
 
     return jsonify(recipes)
+
+    # to allow for re-randomization later: take recipe type in as an argument, get the random tag for it, return 1 recipe at type (insteadof all at once)
+
+
+@app.route("/view-all")     
+def show_all():
+    """ Show lunch idea """
+
+    return render_template('view-all.html')
+
+
+
+
 
 
 @app.route("/alternate-food")

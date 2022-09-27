@@ -5,7 +5,8 @@ import json
 
 import crud
 from model import db, User, Recipe, Favorite, connect_to_db
-import server
+from server import app 
+
 
 def load_data():
     # Load lunch data from JSON file
@@ -52,7 +53,7 @@ if __name__ == "__main__":
     os.system("dropdb lunchdb")
     os.system("createdb lunchdb")
 
-    connect_to_db(server.app)
+    connect_to_db(app)
     db.drop_all()
     db.create_all()
     load_data()
