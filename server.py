@@ -111,7 +111,37 @@ def show_lunch_json():
 
     return jsonify(recipes)
 
-    # to allow for re-randomization later: take recipe type in as an argument, get the random tag for it, return 1 recipe at type (instead of all at once)
+
+
+# @app.route("/alternate-food")
+# def change_food():
+
+#     tag = request.args.get("tag")
+#     exclude = request.args.get("exclude")
+
+#     new_food = crud.get_random_tag(tag)
+
+
+#     return render_template('lunch-idea.html', filling=new_food, crunchy=new_food, fresh=new_food)
+
+
+# @app.route("/alternate-food.json")
+# def change_food_json():
+
+#     tag = request.args.get("tag")
+#     exclude = request.args.get("exclude")
+
+#     new_food = crud.get_random_tag(tag)
+
+#     props = {
+#         "title": new_food.title,
+#         "image": new_food.image, 
+#         "ingredients": new_food.ingredients, 
+#         "instructions": new_food.instructions,
+#         "tips": new_food.tips
+#     }
+
+#     return jsonify(props)
 
 
 
@@ -131,43 +161,32 @@ def view_all_json():
 
 
 
-@app.route("/alternate-food")
-def change_food():
-
-    tag = request.args.get("tag")
-    exclude = request.args.get("exclude")
-
-    new_food = crud.get_random_tag(tag)
+@app.route("/favorites")
+def favorite_recipes():
+    """ Display user's favorite recipes """
+   
+    return render_template('favorites.html')
 
 
-    return render_template('lunch-idea.html', filling=new_food, crunchy=new_food, fresh=new_food)
+@app.route("/favorites.json")
+def favorite_recipes_json():
+
+    if "user_id" not in session:
+        flash("Please log in.")
+        return redirect('/')
+    
+    favorites = crud.create_favorite(user_id=session['user_id'])
+
+    return jsonify(favorites)
 
 
 
-@app.route("/alternate-food.json")
-def change_food_json():
-
-    tag = request.args.get("tag")
-    exclude = request.args.get("exclude")
-
-    new_food = crud.get_random_tag(tag)
-
-    props = {
-        "title": new_food.title,
-        "image": new_food.image, 
-        "ingredients": new_food.ingredients, 
-        "instructions": new_food.instructions,
-        "tips": new_food.tips
-    }
-
-    return jsonify(props)
 
 
-# @app.route("/favorites")
-# def saved_recipes():
-#     """ Display user's favorite recipes """
-#     favorites = Favorite. 
-#  need to generate recipes first, creating searcch route first
+
+
+
+
 
 
 if __name__ == "__main__":

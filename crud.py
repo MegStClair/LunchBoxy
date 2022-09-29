@@ -86,7 +86,6 @@ def get_all_by_tag(tag):
             }
         meals_list.append(meal)
 
-    # can iterate recipes here; 
     # instead of returning list of object, 
     # will return list of dicts
 
