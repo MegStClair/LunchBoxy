@@ -171,6 +171,7 @@ def favorite_recipes():
 @app.route("/favorites.json")
 def favorite_recipes_json():
 
+    # check user is logged in, redirect if not
     if "user_id" not in session:
         flash("Please log in.")
         return redirect('/')
@@ -180,7 +181,18 @@ def favorite_recipes_json():
     return jsonify(favorites)
 
 
+# add to favorites:
+#     fav_recipe = Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first()
 
+#     #  check if already in favs, add to favorites table if not 
+#     if not fav_recipe:    
+#         fav_recipe = Favorite(user_id=session["user_id"], recipe_id=recipe_id)
+#         db.session.add(fav_recipe)
+#         db.session.commit()
+
+#     result = {"message": "Your recipe saved.", "recipe_id": recipe_id}
+
+#     return jsonify(result) 
 
 
 
