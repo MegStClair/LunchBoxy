@@ -24,6 +24,8 @@ def homepage():
 
 
 
+########### USER ROUTES ###########
+
 @app.route('/create-acct', methods=['POST'])
 def create_user():
     """ Create a new user account """
@@ -42,7 +44,6 @@ def create_user():
         flash("Account created! Please log in.")
     
     return redirect('/')
-
 
 
 @app.route("/login", methods=['POST'])
@@ -67,20 +68,22 @@ def user_login():
     return redirect('/profile')
 
 
-
 @app.route("/profile", methods=['GET'])
 def show_profile():
     """ Display user's profile page """
+    
     if 'user_email' in session:
         email = session['user_email']
         user = crud.get_user_by_email(email)
         return render_template("profile.html", name=user.name)
 
     else:
-        flash("User not logged in")
+        flash("Please log in")
         return redirect ('/login')
 
 
+
+########### LUNCH IDEA ROUTES ###########
 
 @app.route("/lunch-idea")     
 def show_lunch():
@@ -110,6 +113,114 @@ def show_lunch_json():
         recipes[tag]=prop
 
     return jsonify(recipes)
+
+
+
+########### VIEW ALL ROUTES ###########
+
+@app.route("/view-all")
+def view_all():
+    """ Show lunch idea """
+
+    return render_template('view-all.html')
+
+
+@app.route("/view-all.json")     
+def view_all_json():
+
+    all_recipes = crud.get_all_by_tag("filling")
+    
+    return jsonify(all_recipes)
+
+
+
+########### FAVORITES ROUTES ###########
+
+@app.route("/update-favorites", methods=['POST'])
+def update_fav():
+    """Add or remove recipe from user's favorite when they click fav icon"""
+
+    user_id = session['user_id']
+    recipe_id = request.form.get("recipe_id")
+
+    favorite = Favorite.query.filter(Favorite.user_id==user_id, Recipe.recipe_id==recipe_id).first()
+
+    #  check if already fav, remove if so
+    if favorite:
+        db.session.delete(favorite)
+        status = "Favorite removed"
+    
+    #  add to fav
+    else: 
+        new_favorite = Favorite(user_id=user_id, recipe_id=recipe_id)
+        db.session.add(new_favorite)
+        status = "Favorite added"
+
+    db.session.commit()
+
+    return jsonify(status)   # jsonify status or new_favorite?? 
+
+
+@app.route("/favorite-status")
+def fav_status():
+    """Return true/false if recipe is already in user favs"""
+
+    user_id = request.args.get("user_id")
+    recipe_id = request.args.get("recipe_id")
+
+    favorite = Favorite.query.filter(Favorite.user_id==user_id, Recipe.recipe_id==recipe_id).first()
+
+    if favorite:
+        return jsonify(True)
+    else:
+        return jsonify(False)
+
+
+@app.route("/favorites")
+def favorite_recipes():
+    """ Display all of user's favorite recipes """
+
+    if 'user_email' in session:
+        email = session['user_email']
+        user = crud.get_user_by_email(email)
+        return render_template("favorites.html", name=user.name)
+    
+    else: 
+        flash("Please log in")
+        return redirect ('/login')
+   
+
+@app.route("/favorites.json")
+def favorite_recipes_json():
+
+    # check user is logged in, redirect if not
+    if "user_id" not in session:
+        flash("Please log in.")
+        return redirect('/')
+    
+    favorites = Favorite.query.filter(Favorite.user_id==user_id, Recipe.recipe_id==recipe_id).all()
+    print("*"*20, "\n", favorites)
+
+    return jsonify(favorites)
+
+
+# add to favorites:
+#     fav_recipe = Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first()
+
+#     #  check if already in favs, add to favorites table if not 
+#     if not fav_recipe:    
+#         fav_recipe = 
+#         db.session.add(fav_recipe)
+#         db.session.commit()
+
+#     result = {"message": "Your recipe saved.", "recipe_id": recipe_id}
+
+#     return jsonify(result) 
+
+
+
+
+
 
 
 
@@ -143,56 +254,6 @@ def show_lunch_json():
 
 #     return jsonify(props)
 
-
-
-@app.route("/view-all")
-def view_all():
-    """ Show lunch idea """
-
-    return render_template('view-all.html')
-
-
-@app.route("/view-all.json")     
-def view_all_json():
-
-    all_recipes = crud.get_all_by_tag("filling")
-    
-    return jsonify(all_recipes)
-
-
-
-@app.route("/favorites")
-def favorite_recipes():
-    """ Display user's favorite recipes """
-   
-    return render_template('favorites.html')
-
-
-@app.route("/favorites.json")
-def favorite_recipes_json():
-
-    # check user is logged in, redirect if not
-    if "user_id" not in session:
-        flash("Please log in.")
-        return redirect('/')
-    
-    favorites = crud.create_favorite(user_id=session['user_id'])
-
-    return jsonify(favorites)
-
-
-# add to favorites:
-#     fav_recipe = Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first()
-
-#     #  check if already in favs, add to favorites table if not 
-#     if not fav_recipe:    
-#         fav_recipe = Favorite(user_id=session["user_id"], recipe_id=recipe_id)
-#         db.session.add(fav_recipe)
-#         db.session.commit()
-
-#     result = {"message": "Your recipe saved.", "recipe_id": recipe_id}
-
-#     return jsonify(result) 
 
 
 
