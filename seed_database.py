@@ -35,11 +35,11 @@ def load_data():
 
 def example_data():
     aiden = User(email="aiden@email.com", password="password", name="Aiden")
-    sandwich = Recipe(title="sandwich")
+    sandwich = Recipe(title="sandwich", tag="filling")
     aiden_fav = Favorite(user=aiden, recipe=sandwich)
     db.session.add_all([aiden, sandwich])
 
-    soup = Recipe(title="soup")
+    soup = Recipe(title="soup", tag="filling")
     db.session.add(soup)
     adrian = User(email="adrian@email.com", password="password", name="Adrian")
     db.session.add(adrian)

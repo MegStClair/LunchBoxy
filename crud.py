@@ -110,6 +110,36 @@ def create_favorite(user_id, recipe_id):
     return favorite
 
 
+def get_user_favs_as_dict(user_id):
+    """ Return all of user's favorite recipes """
+
+    # get all of users favs 
+    favorites = Favorite.query.filter(Favorite.user_id == user_id).all()  
+    
+    jsonifiable_favs = []
+
+    for favorite in favorites:
+        favorite = {
+            "user_id": favorite.user_id,
+            "favorite_id": favorite.favorite_id,
+            "recipe": {
+                    "recipe_id": favorite.recipe_id,
+                    "title": favorite.recipe.title, 
+                    "image": favorite.recipe.image, 
+                    "ingredients": favorite.recipe.ingredients, 
+                    "instructions": favorite.recipe.instructions,
+                    "tips": favorite.recipe.tips
+                    }
+        }
+
+    jsonifiable_favs.append(favorite)
+
+    print("*"*20, jsonifiable_favs)
+     
+    return jsonifiable_favs
+
+
+
 # def remove_favorite(user_id, recipe_id):
 #     """ Remove a favorite """
 

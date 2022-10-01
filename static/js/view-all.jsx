@@ -1,3 +1,6 @@
+//////////////////////// DISPLAY ALL MEALS ///////////////////////////////////////
+
+
 function ShowMealComponent(props) {
 
     const [showDetails, setShowDetails] = React.useState(false)
