@@ -54,8 +54,8 @@ def user_login():
 
     email = request.form.get('email')
     password = request.form.get('password')
-    user_id = session['user_id']
-    user = crud.get_user_by_id(user_id)
+    
+    user = crud.get_user_by_email(email)
 
     if not user or user.password != password:
         flash("The email or password you entered was incorrect.")

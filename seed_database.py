@@ -57,5 +57,5 @@ if __name__ == "__main__":
     db.drop_all()
     db.create_all()
     load_data()
-    example_data()
+    # example_data()
   
