@@ -1,7 +1,6 @@
 //////////////////////// DISPLAY ALL FAVORITES ///////////////////////////////////////
 
 function ShowFavoriteComponent(props) {
-    console.log("jdbkfjfhlflkglkglgk")
     return(
         <div id="favorite">
             <h2>{ props.title }</h2>
@@ -28,10 +27,10 @@ function AllFavoritesContainer() {
             
             <ShowFavoriteComponent
                 title={currentFavorite.recipe.title}
-                image={currentFavorite.image}
-                ingredients={currentFavorite.ingredients}
-                instructions={currentFavorite.instructions}
-                tips={currentFavorite.tips}
+                image={currentFavorite.recipe.image}
+                ingredients={currentFavorite.recipe.ingredients}
+                instructions={currentFavorite.recipe.instructions}
+                tips={currentFavorite.recipe.tips}
                 
             />
         );

@@ -37,18 +37,19 @@ def example_data():
     aiden = User(email="aiden@email.com", password="password", name="Aiden")
     sandwich = Recipe(title="sandwich", tag="filling")
     aiden_fav = Favorite(user=aiden, recipe=sandwich)
-    db.session.add_all([aiden, sandwich])
+    db.session.add_all([aiden, aiden_fav])
 
     soup = Recipe(title="soup", tag="filling")
     db.session.add(soup)
     adrian = User(email="adrian@email.com", password="password", name="Adrian")
     db.session.add(adrian)
-    aiden_fav = Favorite(user=adrian, recipe=soup)
-    db.session.add(aiden_fav)
-
+    adrian_fav = Favorite(user=adrian, recipe=soup)
+    db.session.add(adrian_fav)
     db.session.commit()
 
-    
+
+
+   
 if __name__ == "__main__":
     os.system("dropdb lunchdb")
     os.system("createdb lunchdb")
@@ -57,5 +58,4 @@ if __name__ == "__main__":
     db.drop_all()
     db.create_all()
     load_data()
-    # example_data()
-  
+    example_data()

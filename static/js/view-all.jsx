@@ -50,10 +50,10 @@ function MealContainer() {
             console.log("Data.meals =", data)})
         }, [])
     
-    const fillingMeals = [];
+    const favoriteMeals = [];
     
     for (const currentMeal of meals) {
-        fillingMeals.push(
+        favoriteMeals.push(
 
             <ShowMealComponent
                 title={currentMeal.title}   
@@ -66,7 +66,7 @@ function MealContainer() {
     }
 
     return (
-        <div className="grid">{fillingMeals}</div>
+        <div className="grid">{favoriteMeals}</div>
     );
 
     }

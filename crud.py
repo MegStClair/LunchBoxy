@@ -140,13 +140,6 @@ def get_user_favs_as_dict(user_id):
 
 
 
-# def remove_favorite(user_id, recipe_id):
-#     """ Remove a favorite """
-
-#    return 
-
-
-
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

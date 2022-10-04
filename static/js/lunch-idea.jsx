@@ -1,6 +1,34 @@
 // props = title, image, ingredients, instructions, tips
 
 function FillingComponent(props) {
+
+    // define callback for click event here 
+    function addToFavorites(evt) {
+        console.log('button clicked')
+        evt.preventDefault();
+
+        const favButton = document.querySelector('#fav-button');
+
+        // favButton.addEventListener('click', (evt) => {
+            
+            const favRecipe = {
+                recipe_id: evt.target.dataset.recipeId
+
+            }
+
+                fetch('/add-to-favorites', {
+                    method: 'POST',
+                    body: JSON.stringify(favRecipe),
+                    headers: {
+                        'Content-Type': 'application/json',
+                      },
+                })
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+
+        }
+    
+
     return (
         <div id="filling">
         <h1>{ props.title }</h1>
@@ -9,10 +37,15 @@ function FillingComponent(props) {
         <p> <b>Directions: </b>{ props.instructions }</p>
     
         <p><b>Tip!</b> { props.tips }</p>
-        
+        <button id="fav-button" data-recipe-id={ props.recipe_id } onClick={ addToFavorites }>ADD TO FAVORITES</button>
         </div>
     );
     }
+
+
+    // inside component where button should be, add a button, it will have onClick attribute = function to call when button is clicked 
+    //(insdie body of function make fetch req.)
+    // either send id of recipe as part of body (AJAX lecture) or part of URL /fav/${rec_id}
 
 function SidesComponent(props) {
         return (
@@ -46,13 +79,9 @@ function RecipeContainer(props) {
     )
 }
 
-
-
 fetch('/lunch-idea.json')
 .then((response) => response.json())
 .then((recipes) => {
     ReactDOM.render(<RecipeContainer {...recipes}/>, document.getElementById('container'));
 
-});
-
-// to be able to "change" item- use class on divs and grab elements by class, render stuff in a for loop (avoid rep)
+})

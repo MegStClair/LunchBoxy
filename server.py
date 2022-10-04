@@ -104,6 +104,7 @@ def show_lunch_json():
 
     for tag, recipe in recipes.items():
         prop = {
+            "recipe_id": recipe.recipe_id,
             "title": recipe.title,
             "image": recipe.image, 
             "ingredients": recipe.ingredients, 
@@ -116,7 +117,7 @@ def show_lunch_json():
 
 
 
-########### VIEW ALL ROUTES ###########
+########### VIEW-ALL ROUTES ###########
 
 @app.route("/view-all")
 def view_all():
@@ -161,34 +162,31 @@ def favorite_recipes_json():
     return jsonify(favorites)
 
 
-    #  """
-    # jsaonifiable_favs = [
-    #     {"user_id": 
-    #     "favorite_id":
-    #     "recipe": {"title":..., "recipe_id":...}}
-    # ]
-    # """
+@app.route("/add-to-favorites", methods=["POST"])
+def add_to_favorites():
+    """ Add recipe to favorites """
+    print("jhdchhfhfhfhhjjf")
+    # get user id and recipe id
+    user = session['user_id']
+    recipe_id = request.json.get("recipe_id") #--AJAX lecture!!!
 
+    # check if already in favs
+    if Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first():   
+        flash("This meal is already in your favorites!") 
 
-# add to favorites:
-#     fav_recipe = Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first()
+    else: 
+        user_fav = crud.create_favorite(user_id=user, recipe_id=recipe_id)  
+        db.session.add(user_fav)
+        db.session.commit()
+    # adds to favorites
 
-#     #  check if already in favs, add to favorites table if not 
-#     if not fav_recipe:    
-#         fav_recipe = 
-#         db.session.add(fav_recipe)
-#         db.session.commit()
-
-#     result = {"message": "Your recipe saved.", "recipe_id": recipe_id}
-
-#     return jsonify(result) 
-
+    return { "success": True }
 
 
 
 
 
-
+########## ALTERNATE SIDES ROUTES ###########
 
 # @app.route("/alternate-food")
 # def change_food():
