@@ -1,4 +1,4 @@
-//////////////////////// DISPLAY ALL FAVORITES ///////////////////////////////////////
+// DISPLAY ALL FAVORITES 
 
 function ShowFavoriteComponent(props) {
     return(
@@ -17,11 +17,12 @@ function AllFavoritesContainer() {
     React.useEffect(() => {
         fetch('/favorites.json')
         .then((response) => response.json())
-        .then((data) => {setFavorites(data)})
+        .then((data) => {setFavorites(data)
+            console.log("data.favorites=", data)})
         }, [])
 
     const userFavorites = [];
-    console.log(favorites)
+
     for (const currentFavorite of favorites) {
         userFavorites.push(
             
@@ -30,11 +31,11 @@ function AllFavoritesContainer() {
                 image={currentFavorite.recipe.image}
                 ingredients={currentFavorite.recipe.ingredients}
                 instructions={currentFavorite.recipe.instructions}
-                tips={currentFavorite.recipe.tips}
-                
+                tips={currentFavorite.recipe.tips}  
             />
         );
     }
+    
     console.log(userFavorites)
     return (
         <div className="grid">{userFavorites}</div>

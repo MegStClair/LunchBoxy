@@ -157,7 +157,7 @@ def favorite_recipes_json():
 
     favorites = crud.get_user_favs_as_dict(session["user_id"])
     
-    print(favorites)
+    print("="*20, "ROUTE FAVS: ", favorites)
 
     return jsonify(favorites)
 
@@ -165,11 +165,10 @@ def favorite_recipes_json():
 @app.route("/add-to-favorites", methods=["POST"])
 def add_to_favorites():
     """ Add recipe to favorites """
-    print("jhdchhfhfhfhhjjf")
     # get user id and recipe id
     user = session['user_id']
     recipe_id = request.json.get("recipe_id") #--AJAX lecture!!!
-
+    user_fav = None
     # check if already in favs
     if Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first():   
         flash("This meal is already in your favorites!") 
@@ -179,6 +178,8 @@ def add_to_favorites():
         db.session.add(user_fav)
         db.session.commit()
     # adds to favorites
+
+    print("*"*20, "USER FAV: ", user_fav)
 
     return { "success": True }
 

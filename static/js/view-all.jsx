@@ -1,5 +1,4 @@
-//////////////////////// DISPLAY ALL MEALS ///////////////////////////////////////
-
+// DISPLAY ALL MEALS 
 
 function ShowMealComponent(props) {
 
@@ -38,6 +37,37 @@ function ShowMealComponent(props) {
 
 }
 
+function FavoriteButtonComponent(props) {
+    
+    function addToFavorites(evt) {
+        console.log('button clicked')
+        evt.preventDefault();
+
+        const favButton = document.querySelector('#fav-button');
+            
+            const favRecipe = {
+                recipe_id: evt.target.dataset.recipeId
+            }
+
+                fetch('/add-to-favorites', {
+                    method: 'POST',
+                    body: JSON.stringify(favRecipe),
+                    headers: {
+                        'Content-Type': 'application/json',
+                      },
+                })
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+        }
+
+    return (
+        <button id="fav-button" 
+            data-recipe-id={ props.recipe_id } 
+            onClick={ addToFavorites }>ADD TO FAVORITES</button>
+
+    );
+}
+
 
 function MealContainer() {
 
@@ -54,7 +84,7 @@ function MealContainer() {
     
     for (const currentMeal of meals) {
         favoriteMeals.push(
-
+            <div>
             <ShowMealComponent
                 title={currentMeal.title}   
                 image={currentMeal.image}
@@ -62,6 +92,9 @@ function MealContainer() {
                 instructions={currentMeal.instructions}
                 tips={currentMeal.tips} 
             />
+            <FavoriteButtonComponent/>
+            <br/><br/>
+            </div>
         );
     }
 

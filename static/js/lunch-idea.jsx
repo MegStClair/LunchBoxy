@@ -1,19 +1,16 @@
-// props = title, image, ingredients, instructions, tips
+// SHOW LUNCH IDEA
 
 function FillingComponent(props) {
-
-    // define callback for click event here 
+    // props: recipe_id, tag, title, ingredients, instructions, tips
+    
     function addToFavorites(evt) {
         console.log('button clicked')
         evt.preventDefault();
 
         const favButton = document.querySelector('#fav-button');
-
-        // favButton.addEventListener('click', (evt) => {
             
             const favRecipe = {
                 recipe_id: evt.target.dataset.recipeId
-
             }
 
                 fetch('/add-to-favorites', {
@@ -25,10 +22,8 @@ function FillingComponent(props) {
                 })
                 .then((response) => response.json())
                 .then((data) => console.log(data));
-
         }
     
-
     return (
         <div id="filling">
         <h1>{ props.title }</h1>
@@ -43,9 +38,6 @@ function FillingComponent(props) {
     }
 
 
-    // inside component where button should be, add a button, it will have onClick attribute = function to call when button is clicked 
-    //(insdie body of function make fetch req.)
-    // either send id of recipe as part of body (AJAX lecture) or part of URL /fav/${rec_id}
 
 function SidesComponent(props) {
         return (
@@ -61,7 +53,7 @@ function RecipeContainer(props) {
     return (
         <div id="lunch">
         <FillingComponent {...props.filling}/>
-            
+            <br/><br/>
             <div id="crunchy">
             <SidesComponent {...props.crunchy}/>
             </div>

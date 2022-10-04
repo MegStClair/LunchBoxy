@@ -114,8 +114,8 @@ def get_user_favs_as_dict(user_id):
     """ Return all of user's favorite recipes """
 
     # get all of users favs 
-    favorites = Favorite.query.filter(Favorite.user_id == user_id).all()  
-    
+    favorites = Favorite.query.filter_by(user_id = user_id).all()
+
     jsonifiable_favs = []
 
     for favorite in favorites:
@@ -132,9 +132,7 @@ def get_user_favs_as_dict(user_id):
                     }
         }
 
-    jsonifiable_favs.append(favorite)
-
-    print("*"*20, jsonifiable_favs)
+        jsonifiable_favs.append(favorite)
      
     return jsonifiable_favs
 
