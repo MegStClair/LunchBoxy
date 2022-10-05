@@ -64,7 +64,7 @@ def connect_to_db(app, db_name="lunchdb"):
     app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql:///{db_name}"
     app.config["SQLALCHEMY_ECHO"] = False
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
+    
     # Connecting instance of SQLAlchemy to database & Flask
     db.app = app
     db.init_app(app)

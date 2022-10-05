@@ -1,12 +1,11 @@
-"""CRUD operations."""
+"""CRUD operations"""
 
 from model import db, User, Recipe, Favorite, connect_to_db
-
 import json
-
 from random import choice 
 
 
+######### USER CRUD #########
 
 def create_user(email, password, name):
     """Create and return a new user."""
@@ -36,6 +35,8 @@ def get_user_name(name):
 
     return User.query.filter(User.name == name).first()
 
+
+######### RECIPE CRUD #########
 
 def create_recipe(tag, title, image, ingredients, instructions, tips):
     """Create and return a new recipe."""
@@ -101,6 +102,8 @@ def get_random_by_tag(tag):
 
     return random_food
 
+
+######### FAVORITES CRUD #########
 
 def create_favorite(user_id, recipe_id):
     """Create and return a new favorite."""

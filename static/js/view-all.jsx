@@ -76,8 +76,7 @@ function MealContainer() {
     React.useEffect(() => {
         fetch('/view-all.json')
         .then((response) => response.json())
-        .then((data) => {setMeals(data) 
-            console.log("Data.meals =", data)})
+        .then((data) => {setMeals(data)})
         }, [])
     
     const favoriteMeals = [];
