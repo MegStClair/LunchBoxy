@@ -5,6 +5,7 @@ import json
 from random import choice 
 
 
+
 ######### USER CRUD #########
 
 def create_user(email, password, name):
@@ -20,20 +21,17 @@ def get_user_by_id(user_id):
 
     return User.query.get(user_id)
 
-    # return a user by their user_id
-
 
 def get_user_by_email(email):
     """Return user by email"""
 
     return User.query.filter(User.email == email).first()
 
-    # return a user with that email if it exists; otherwise return None
-
 
 def get_user_name(name):
 
     return User.query.filter(User.name == name).first()
+
 
 
 ######### RECIPE CRUD #########
@@ -101,6 +99,7 @@ def get_random_by_tag(tag):
     random_food = choice(food)
 
     return random_food
+
 
 
 ######### FAVORITES CRUD #########
