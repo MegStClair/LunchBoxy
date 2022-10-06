@@ -164,20 +164,58 @@ def favorite_recipes_json():
 def add_to_favorites():
     """ Add recipe to favorites """
     # get user id and recipe id
-    user = session['user_id']
+    user_id = session['user_id']
     recipe_id = request.json.get("recipe_id")
     
     # check if already in favs
     if Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first():   
         flash("This meal is already in your favorites!") 
 
+    # adds to favorites
     else: 
-        user_fav = crud.create_favorite(user_id=user, recipe_id=recipe_id)  
+        user_fav = crud.create_favorite(user_id=user, recipe_id=recipe_id) 
         db.session.add(user_fav)
         db.session.commit()
-    # adds to favorites
 
     return { "success": True }
+
+
+@app.route("/remove-from-favorites", methods=["POST"])
+def remove_from_favorites():
+    """ Remove recipe from favorites """  
+
+    # get user id and recipe id
+    user_id = session['user_id']
+    favorite_id = request.json.get("favorite_id") 
+
+    existing_fav = Favorite.query.get(favorite_id)
+    print("*"*20, existing_fav)
+    
+    db.session.delete(existing_fav)
+    db.session.commit()
+
+    return { "success": True }
+
+
+# @app.route("/toggle-remove-favorites", methods=["POST"])
+# def toggle_remove_favorites():
+#     """ Remove recipe from favorites """  
+
+#     # get user id and recipe id
+#     user = session['user_id']
+#     recipe_id = request.json.get("recipe_id") 
+
+#     added_fav = Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first()
+
+#     if added_fav:
+#         db.session.delete(added_fav)
+#         db.session.commit()
+
+#         return { "success": True }
+#     return { "success": False }
+
+
+
 
 
 

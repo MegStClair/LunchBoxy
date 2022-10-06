@@ -77,6 +77,7 @@ def get_all_by_tag(tag):
     
     for recipe in all_by_tag:
         meal = {
+            "recipe_id": recipe.recipe_id,
             "title": recipe.title, 
             "image": recipe.image, 
             "ingredients": recipe.ingredients, 
@@ -112,11 +113,19 @@ def create_favorite(user_id, recipe_id):
     return favorite
 
 
+def get_favorite(user_id, recipe_id):
+    """ Return user's favorite by recipe id """
+
+    return Favorite.query.get(user_id=user_id, recipe_id=recipe_id)
+
+
 def get_user_favs_as_dict(user_id):
     """ Return all of user's favorite recipes """
 
     # get all of users favs 
     favorites = Favorite.query.filter_by(user_id = user_id).all()
+
+    print("*"*20, "favorites: " , favorites)
 
     jsonifiable_favs = []
 
@@ -135,6 +144,8 @@ def get_user_favs_as_dict(user_id):
         }
 
         jsonifiable_favs.append(favorite)
+
+    print("*"*20, "jsonifiable_favs: " , jsonifiable_favs)
      
     return jsonifiable_favs
 

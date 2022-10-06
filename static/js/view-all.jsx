@@ -13,7 +13,7 @@ function ShowMealComponent(props) {
     let details = null 
     if (showDetails===true) {
         details = (
-        <div className="detais">
+        <div className="details">
         <p><b>Ingredients: </b> { props.ingredients }</p>
         <p><b>Directions: </b>{ props.instructions }</p>
     
@@ -46,9 +46,10 @@ function FavoriteButtonComponent(props) {
         const favButton = document.querySelector('#fav-button');
             
             const favRecipe = {
-                recipe_id: evt.target.dataset.recipeId
+                recipe_id: props.recipeId
             }
-
+            console.log(favRecipe);
+            console.log(evt.target);
                 fetch('/add-to-favorites', {
                     method: 'POST',
                     body: JSON.stringify(favRecipe),
@@ -62,7 +63,7 @@ function FavoriteButtonComponent(props) {
 
     return (
         <button id="fav-button" 
-            data-recipe-id={ props.recipe_id } 
+            recipe_id={ props.recipeId } 
             onClick={ addToFavorites }>ADD TO FAVORITES</button>
 
     );
@@ -76,7 +77,9 @@ function MealContainer() {
     React.useEffect(() => {
         fetch('/view-all.json')
         .then((response) => response.json())
-        .then((data) => {setMeals(data)})
+        .then((data) => {
+            console.log(data);
+            setMeals(data)})
         }, [])
     
     const favoriteMeals = [];
@@ -85,13 +88,17 @@ function MealContainer() {
         favoriteMeals.push(
             <div>
             <ShowMealComponent
+                recipeId={currentMeal.recipe_id}
                 title={currentMeal.title}   
                 image={currentMeal.image}
                 ingredients={currentMeal.ingredients}  
                 instructions={currentMeal.instructions}
                 tips={currentMeal.tips} 
             />
-            <FavoriteButtonComponent/>
+            <FavoriteButtonComponent
+                recipeId={currentMeal.recipe_id}
+            />
+        
             <br/><br/>
             </div>
         );

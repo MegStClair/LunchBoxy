@@ -10,6 +10,40 @@ function ShowFavoriteComponent(props) {
 }
 
 
+
+function RemoveButtonComponent(props) {
+    
+    function removeFromFavorites(evt) {
+        console.log('button clicked')
+        evt.preventDefault();
+
+        const favButton = document.querySelector('#remove-button');
+            
+            const favRecipe = {
+                favorite_id: props.favoriteId
+            }
+            console.log(favRecipe);
+            console.log(evt.target);
+                fetch('/remove-from-favorites', {
+                    method: 'POST',
+                    body: JSON.stringify(favRecipe),
+                    headers: {
+                        'Content-Type': 'application/json',
+                      },
+                })
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+        }
+
+    return (
+        <button id="remove-button" 
+            favorite_id={ props.favoriteId } 
+            onClick={ removeFromFavorites }>REMOVE FROM FAVORITES</button>
+
+    );
+}
+
+
 function AllFavoritesContainer() {
 
     const [favorites, setFavorites] = React.useState([]);
@@ -25,14 +59,20 @@ function AllFavoritesContainer() {
 
     for (const currentFavorite of favorites) {
         userFavorites.push(
-            
+            <div id="remove">
             <ShowFavoriteComponent
+                favorite_id={currentFavorite.favorite_id}
+                recipeId={currentFavorite.recipe_id}
                 title={currentFavorite.recipe.title}
                 image={currentFavorite.recipe.image}
                 ingredients={currentFavorite.recipe.ingredients}
                 instructions={currentFavorite.recipe.instructions}
                 tips={currentFavorite.recipe.tips}  
             />
+            <RemoveButtonComponent
+                favoriteId={currentFavorite.favorite_id}
+            />
+            </div>
         );
     }
     
