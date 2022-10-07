@@ -10,20 +10,19 @@ function ShowFavoriteComponent(props) {
 }
 
 
-
 function RemoveButtonComponent(props) {
     
     function removeFromFavorites(evt) {
         console.log('button clicked')
         evt.preventDefault();
 
-        const favButton = document.querySelector('#remove-button');
+        const removeButton = document.querySelector('#remove-button');
             
             const favRecipe = {
                 favorite_id: props.favoriteId
             }
-            console.log(favRecipe);
-            console.log(evt.target);
+            // console.log(favRecipe);
+            // console.log(evt.target);
                 fetch('/remove-from-favorites', {
                     method: 'POST',
                     body: JSON.stringify(favRecipe),
@@ -33,6 +32,13 @@ function RemoveButtonComponent(props) {
                 })
                 .then((response) => response.json())
                 .then((data) => console.log(data));
+            const initialText = "REMOVE FROM FAVORITES"
+    
+            if (removeButton.innerHTML == initialText) {
+                removeButton.innerHTML = "REMOVED";
+            } else {
+                removeButton.innerHTML = initalText;
+            }
         }
 
     return (

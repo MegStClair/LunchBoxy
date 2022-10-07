@@ -1,73 +1,93 @@
 // SHOW LUNCH IDEA
 
 function FillingComponent(props) {
-    // props: recipe_id, tag, title, ingredients, instructions, tips
-    
-    function addToFavorites(evt) {
-        console.log('button clicked')
-        evt.preventDefault();
-
-        const favButton = document.querySelector('#fav-button');
-            
-            const favRecipe = {
-                recipe_id: evt.target.dataset.recipeId
-            }
-
-                fetch('/add-to-favorites', {
-                    method: 'POST',
-                    body: JSON.stringify(favRecipe),
-                    headers: {
-                        'Content-Type': 'application/json',
-                      },
-                })
-                .then((response) => response.json())
-                .then((data) => console.log(data));
-        }
-    
+    // props: recipe_id, tag, title, ingredients, instructions, tip    
     return (
         <div id="filling">
         <h1>{ props.title }</h1>
-        <img src={ props.image } width={500}/>
+        <img id="filling-img" src={ props.image } width={500}/>
         <p> <b>Ingredients: </b> { props.ingredients }</p>
         <p> <b>Directions: </b>{ props.instructions }</p>
     
         <p><b>Tip!</b> { props.tips }</p>
-        <button id="fav-button" data-recipe-id={ props.recipe_id } onClick={ addToFavorites }>ADD TO FAVORITES</button>
+        {/* <button id="fav-button" data-recipe-id={ props.recipe_id } onClick={ addToFavorites }>ADD TO FAVORITES</button> */}
         </div>
     );
     }
 
 
+function FavoriteButtonComponent(props) {
+
+    function addToFavorites(evt) {
+        evt.preventDefault();
+
+        const favButton = document.querySelector('#fav-button');
+            
+            const favRecipe = {
+                recipe_id: props.recipeId
+            }
+            
+                fetch('/add-to-favorites', {
+                    method: 'POST',
+                    body: JSON.stringify(favRecipe),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        },
+                })
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+            
+        
+            const initialText = "ADD TO FAVORITES"
+        
+            if (favButton.innerHTML == initialText) {
+            favButton.innerHTML = "ADDED TO FAVORITES";
+            } else {
+                favButton.innerHTML = initalText;
+            }
+    }
+
+    return (
+        <button id="fav-button" 
+            recipe_id={ props.recipeId }
+            onClick={ addToFavorites }>ADD TO FAVORITES</button>
+
+    );
+}    
+
+
 
 function SidesComponent(props) {
+
         return (
             <div id="sides">
             <h2>{ props.title }</h2>
-            <img src={ props.image } width={200}/>
+            <img className="img" src={ props.image } width={200}/>
             </div>
         );
-        }
+    }
+
 
 
 function RecipeContainer(props) {
+
     return (
-        <div id="lunch">
-        <FillingComponent {...props.filling}/>
-            <br/><br/>
+        <div id="recipe-container">
+            <div id="filling">
+            <FillingComponent {...props.filling}/>
+            <FavoriteButtonComponent
+                recipeId={props.filling.recipe_id}/>
+            </div><br/><br/>
+
             <div id="crunchy">
             <SidesComponent {...props.crunchy}/>
-            </div>
-    
+            </div><br/><br/>
+
             <div id="fresh">
             <SidesComponent {...props.fresh}/>
-            </div>
+            </div><br/><br/>
 
-            <div id="fresh2">
-            <SidesComponent {...props.fresh2}/>
-            </div>
-
-        </div>
-    
+        </div>    
     )
 }
 

@@ -40,7 +40,6 @@ function ShowMealComponent(props) {
 function FavoriteButtonComponent(props) {
     
     function addToFavorites(evt) {
-        console.log('button clicked')
         evt.preventDefault();
 
         const favButton = document.querySelector('#fav-button');
@@ -48,8 +47,7 @@ function FavoriteButtonComponent(props) {
             const favRecipe = {
                 recipe_id: props.recipeId
             }
-            console.log(favRecipe);
-            console.log(evt.target);
+            
                 fetch('/add-to-favorites', {
                     method: 'POST',
                     body: JSON.stringify(favRecipe),
@@ -59,6 +57,14 @@ function FavoriteButtonComponent(props) {
                 })
                 .then((response) => response.json())
                 .then((data) => console.log(data));
+            
+            const initialText = "ADD TO FAVORITES"
+    
+            if (favButton.innerHTML == initialText) {
+            favButton.innerHTML = "ADDED TO FAVORITES";
+            } else {
+                favButton.innerHTML = initalText;
+            }
         }
 
     return (

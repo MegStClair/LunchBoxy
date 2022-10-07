@@ -62,7 +62,6 @@ def user_login():
     else:
         # Log in user by storing the user id in session
         session['user_id'] = user.user_id 
-        flash("Logged In!")
         
 
     return redirect('/profile')
@@ -79,7 +78,7 @@ def show_profile():
 
     else:
         flash("Please log in")
-        return redirect ('/login')
+        return redirect ('/')
 
 
 
@@ -173,7 +172,7 @@ def add_to_favorites():
 
     # adds to favorites
     else: 
-        user_fav = crud.create_favorite(user_id=user, recipe_id=recipe_id) 
+        user_fav = crud.create_favorite(user_id=user_id, recipe_id=recipe_id) 
         db.session.add(user_fav)
         db.session.commit()
 
@@ -184,14 +183,13 @@ def add_to_favorites():
 def remove_from_favorites():
     """ Remove recipe from favorites """  
 
-    # get user id and recipe id
+    # get user id and favorite id
     user_id = session['user_id']
     favorite_id = request.json.get("favorite_id") 
 
-    existing_fav = Favorite.query.get(favorite_id)
-    print("*"*20, existing_fav)
+    current_fav = Favorite.query.get(favorite_id)
     
-    db.session.delete(existing_fav)
+    db.session.delete(current_fav)
     db.session.commit()
 
     return { "success": True }
@@ -223,35 +221,35 @@ def remove_from_favorites():
 
 ########## ALTERNATE SIDES ROUTES ###########
 
-# @app.route("/alternate-food")
-# def change_food():
+@app.route("/alternate-food")
+def change_food():
 
-#     tag = request.args.get("tag")
-#     exclude = request.args.get("exclude")
+    tag = request.args.get("tag")
+    exclude = request.args.get("exclude")
 
-#     new_food = crud.get_random_tag(tag)
+    new_item = crud.get_random_tag(tag)
+
+    return render_template('lunch-idea.html', filling=new_item, crunchy=new_item, fresh=new_item)
 
 
-#     return render_template('lunch-idea.html', filling=new_food, crunchy=new_food, fresh=new_food)
+@app.route("/alternate-food.json")
+def change_food_json():
 
+    tag = request.args.get("tag")
+    exclude = request.args.get("exclude")
 
-# @app.route("/alternate-food.json")
-# def change_food_json():
+    new_item = crud.get_random_tag(tag)
 
-#     tag = request.args.get("tag")
-#     exclude = request.args.get("exclude")
+    props = {
+        "recipe_id": new_item.recipe_id,
+        "title": new_item.title,
+        "image": new_item.image, 
+        "ingredients": new_item.ingredients, 
+        "instructions": new_item.instructions,
+        "tips": new_item.tips
+    }
 
-#     new_food = crud.get_random_tag(tag)
-
-#     props = {
-#         "title": new_food.title,
-#         "image": new_food.image, 
-#         "ingredients": new_food.ingredients, 
-#         "instructions": new_food.instructions,
-#         "tips": new_food.tips
-#     }
-
-#     return jsonify(props)
+    return jsonify(props)
 
 
 
