@@ -5,7 +5,6 @@ function ShowMealComponent(props) {
     const [showDetails, setShowDetails] = React.useState(false)
 
     function handleShowDetails() {
-        console.log('image clicked')
 
         setShowDetails (!showDetails) 
         
@@ -61,7 +60,7 @@ function FavoriteButtonComponent(props) {
             const initialText = "ADD TO FAVORITES"
     
             if (favButton.innerHTML == initialText) {
-            favButton.innerHTML = "ADDED TO FAVORITES";
+            favButton.innerHTML = "FAVORITED!";
             } else {
                 favButton.innerHTML = initalText;
             }

@@ -16,6 +16,18 @@ function FillingComponent(props) {
     }
 
 
+// function NewIdeaComponent = () => {
+//     const navigate = useNavigate();
+//     const newIdea = () => navigate.push('/lunch-idea');
+
+//     return (
+//         <button id="new-idea"
+//         onClick={ newIdea }>NEW IDEA</button>
+//     );
+//     }
+
+
+
 function FavoriteButtonComponent(props) {
 
     function addToFavorites(evt) {
@@ -41,7 +53,7 @@ function FavoriteButtonComponent(props) {
             const initialText = "ADD TO FAVORITES"
         
             if (favButton.innerHTML == initialText) {
-            favButton.innerHTML = "ADDED TO FAVORITES";
+            favButton.innerHTML = "FAVORITED!";
             } else {
                 favButton.innerHTML = initalText;
             }

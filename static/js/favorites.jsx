@@ -35,7 +35,7 @@ function RemoveButtonComponent(props) {
             const initialText = "REMOVE FROM FAVORITES"
     
             if (removeButton.innerHTML == initialText) {
-                removeButton.innerHTML = "REMOVED";
+                removeButton.innerHTML = "REMOVED!";
             } else {
                 removeButton.innerHTML = initalText;
             }
