@@ -10,22 +10,9 @@ function FillingComponent(props) {
         <p> <b>Directions: </b>{ props.instructions }</p>
     
         <p><b>Tip!</b> { props.tips }</p>
-        {/* <button id="fav-button" data-recipe-id={ props.recipe_id } onClick={ addToFavorites }>ADD TO FAVORITES</button> */}
         </div>
     );
     }
-
-
-// function NewIdeaComponent = () => {
-//     const navigate = useNavigate();
-//     const newIdea = () => navigate.push('/lunch-idea');
-
-//     return (
-//         <button id="new-idea"
-//         onClick={ newIdea }>NEW IDEA</button>
-//     );
-//     }
-
 
 
 function FavoriteButtonComponent(props) {

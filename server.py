@@ -23,8 +23,7 @@ def homepage():
     return render_template('homepage.html')
 
 
-
-########### USER ROUTES ###########
+###################### USER ROUTES ######################
 
 @app.route('/create-acct', methods=['POST'])
 def create_user():
@@ -82,7 +81,7 @@ def show_profile():
 
 
 
-########### LUNCH IDEA ROUTES ###########
+###################### LUNCH IDEA ROUTES ######################
 
 @app.route("/lunch-idea")     
 def show_lunch():
@@ -116,7 +115,7 @@ def show_lunch_json():
 
 
 
-########### VIEW-ALL ROUTES ###########
+###################### VIEW-ALL ROUTES ######################
 
 @app.route("/view-all")
 def view_all():
@@ -134,7 +133,7 @@ def view_all_json():
 
 
 
-########### FAVORITES ROUTES ###########
+###################### FAVORITES ROUTES ######################
 
 @app.route("/favorites")
 def favorite_recipes():
@@ -193,64 +192,6 @@ def remove_from_favorites():
     db.session.commit()
 
     return { "success": True }
-
-
-# @app.route("/toggle-remove-favorites", methods=["POST"])
-# def toggle_remove_favorites():
-#     """ Remove recipe from favorites """  
-
-#     # get user id and recipe id
-#     user = session['user_id']
-#     recipe_id = request.json.get("recipe_id") 
-
-#     added_fav = Favorite.query.filter_by(user_id=session["user_id"], recipe_id=recipe_id).first()
-
-#     if added_fav:
-#         db.session.delete(added_fav)
-#         db.session.commit()
-
-#         return { "success": True }
-#     return { "success": False }
-
-
-
-
-
-
-
-
-########## ALTERNATE SIDES ROUTES ###########
-
-@app.route("/alternate-food")
-def change_food():
-
-    tag = request.args.get("tag")
-    exclude = request.args.get("exclude")
-
-    new_item = crud.get_random_tag(tag)
-
-    return render_template('lunch-idea.html', filling=new_item, crunchy=new_item, fresh=new_item)
-
-
-@app.route("/alternate-food.json")
-def change_food_json():
-
-    tag = request.args.get("tag")
-    exclude = request.args.get("exclude")
-
-    new_item = crud.get_random_tag(tag)
-
-    props = {
-        "recipe_id": new_item.recipe_id,
-        "title": new_item.title,
-        "image": new_item.image, 
-        "ingredients": new_item.ingredients, 
-        "instructions": new_item.instructions,
-        "tips": new_item.tips
-    }
-
-    return jsonify(props)
-
 
 
 

@@ -45,7 +45,6 @@ function RemoveButtonComponent(props) {
         <button id="remove-button" 
             favorite_id={ props.favoriteId } 
             onClick={ removeFromFavorites }>REMOVE FROM FAVORITES</button>
-
     );
 }
 
