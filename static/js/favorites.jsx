@@ -16,7 +16,7 @@ function RemoveButtonComponent(props) {
         console.log('button clicked')
         evt.preventDefault();
 
-        const removeButton = document.querySelector('#remove-button');
+        const removeButton = evt.target;
             
             const favRecipe = {
                 favorite_id: props.favoriteId
@@ -37,7 +37,7 @@ function RemoveButtonComponent(props) {
             if (removeButton.innerHTML == initialText) {
                 removeButton.innerHTML = "REMOVED!";
             } else {
-                removeButton.innerHTML = initalText;
+                removeButton.innerHTML = initialText;
             }
         }
 

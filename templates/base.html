@@ -15,23 +15,25 @@
     </div>
 
     
-  <!-- Load React dependencies on all pages for this app. move to bottom if page acts weird -->
+  <!-- Load React dependencies on all pages for this app. (move to bottom if page acts weird) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js" crossorigin></script>
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="/static/css/site.css">
 
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;300;700&display=swap" rel="stylesheet">
+ </head>
+
   {% block head %}{% endblock %}
-  </head>
-  <body>
-    <!-- {% for msg in get_flashed_messages() %}
-    <p class="flash-msg">
-      {{ msg }} -->
-    </p>
-    {% endfor %}
-     <!-- Include the page's content with this block. -->
+  
+
+
+  <!-- Include the page's content with this block. -->
   {% block body %}
   {% endblock %}
 

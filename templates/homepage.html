@@ -1,38 +1,60 @@
 {% extends 'base.html' %}
-{% block title %}Lunch Planning Site{% endblock %}
+{% block title %}LunchBoxy{% endblock %}
 
 {% block body %}
-<h1>Welcome!</h1>
-<div className="action-toggles">
+<head>
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<!-- Stylesheet -->
+<link rel="stylesheet" href="/static/css/homepage.css" />
+</head>
+<body>
+
+<div class="container px-5">
+    <div class="row g-5">
+        <div class="col-2">
+
+    <h1>LunchBoxy</h1>
 
 
-<button id="login-toggle">Login</button>
+    <div class="p-3" name="action-toggles">
+        <div class="row">
+            <div class="col">
+                <button id="login-toggle">Login</button>
 
-<div id="login-form" style="display:none;">
-    <form class="login" form action="/login" method="POST">
-            <p>Email: <input type="text" name="email" id="login-email"></p>
-            <p>Password: <input type="password" name="password" id="login-pw"></p>
-            <p><button type="submit" id="login-btn">Submit</button></p>
-    </form>
+                <div id="login-form" style="display:none;">
+                    <form class="login" form action="/login" method="POST">
+                            <p>Email: <input type="text" name="email" id="login-email"></p>
+                            <p>Password: <input type="password" name="password" id="login-pw"></p>
+                            <p><button type="submit" id="login-btn">Submit</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button id="create-toggle">Create Account</button>
+
+                <div id="create-acct-form" style="display:none;">
+                    <form id="create-acct" form action="/create-acct" method="POST">
+                            <p>Name: <input type="text" name="name" id="create-name"></p>
+                            <p>Email: <input type="text" name="email" id="create-email"></p>
+                            <p>Password: <input type="password" name="password" id="create-pw"></p>
+                            <p><button type="submit" id="submit-btn">Submit</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="/static/js/homepage.js"></script>
+</div></div>
+    </div>
 </div>
-    
-    
-<button id="create-toggle">Create Account</button>
 
-<div id="create-acct-form" style="display:none;">
-    <form id="create-acct" form action="/create-acct" method="POST">
-            <p>Name: <input type="text" name="name" id="create-name"></p>
-            <p>Email: <input type="text" name="email" id="create-email"></p>
-            <p>Password: <input type="password" name="password" id="create-pw"></p>
-            <p><button type="submit" id="submit-btn">Submit</button></p>
-    </form>
-</div>
-
-
-<script src="/static/js/homepage.js"></script>
-
-</div>
-
+</body>
 
 
    

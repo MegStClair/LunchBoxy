@@ -1,0 +1,31 @@
+h1 {
+    font-family: 'Inter Tight', sans-serif; 
+    font-weight: 700;
+    color: black;
+  }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* font-family: 'Inter Tight', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+
+body {
+  background-image: url("img/lunchbox-blue-bckgrd.jpg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #000;
+  line-height: 2;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  background-color: white;
+  position: center center;
+}

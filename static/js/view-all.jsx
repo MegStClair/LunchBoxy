@@ -41,7 +41,7 @@ function FavoriteButtonComponent(props) {
     function addToFavorites(evt) {
         evt.preventDefault();
 
-        const favButton = document.querySelector('#fav-button');
+        const favButton = evt.target;
             
             const favRecipe = {
                 recipe_id: props.recipeId
@@ -62,7 +62,7 @@ function FavoriteButtonComponent(props) {
             if (favButton.innerHTML == initialText) {
             favButton.innerHTML = "FAVORITED!";
             } else {
-                favButton.innerHTML = initalText;
+                favButton.innerHTML = initialText;
             }
         }
 

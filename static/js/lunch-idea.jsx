@@ -42,7 +42,7 @@ function FavoriteButtonComponent(props) {
             if (favButton.innerHTML == initialText) {
             favButton.innerHTML = "FAVORITED!";
             } else {
-                favButton.innerHTML = initalText;
+                favButton.innerHTML = initialText;
             }
     }
 
