@@ -11,49 +11,48 @@ integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG
 </head>
 <body>
 
-<div class="container px-5">
-    <div class="row g-5">
-        <div class="col-2">
 
-    <h1>LunchBoxy</h1>
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="row p-5">
+        <h1>LunchBoxy</h1>
+    
+    
+        <div class="row p-5">
+            <div name="action-toggles">
 
-
-    <div class="p-3" name="action-toggles">
-        <div class="row">
-            <div class="col">
-                <button id="login-toggle">Login</button>
+                <button class="button" id="login-toggle" >Log In</button> 
+                <button class="button" id="create-toggle">Sign Up</button>
+                <br><br>
 
                 <div id="login-form" style="display:none;">
-                    <form class="login" form action="/login" method="POST">
+                    <form class="form" form action="/login" method="POST">
                             <p>Email: <input type="text" name="email" id="login-email"></p>
                             <p>Password: <input type="password" name="password" id="login-pw"></p>
-                            <p><button type="submit" id="login-btn">Submit</button></p>
+                            <p><button class="submit" type="submit" id="login-btn">submit</button></p>
                     </form>
                 </div>
+
+
+
+            <div id="create-acct-form" style="display:none;">
+                <form class="form" id="create-acct" form action="/create-acct" method="POST">
+                        <p>Name: <input type="text" name="name" id="create-name"></p>
+                        <p>Email: <input type="text" name="email" id="create-email"></p>
+                        <p>Password: <input type="password" name="password" id="create-pw"></p>
+                        <p><button class="submit" type="submit" id="submit-btn">submit</button></p>
+                </form>
             </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col">
-                <button id="create-toggle">Create Account</button>
-
-                <div id="create-acct-form" style="display:none;">
-                    <form id="create-acct" form action="/create-acct" method="POST">
-                            <p>Name: <input type="text" name="name" id="create-name"></p>
-                            <p>Email: <input type="text" name="email" id="create-email"></p>
-                            <p>Password: <input type="password" name="password" id="create-pw"></p>
-                            <p><button type="submit" id="submit-btn">Submit</button></p>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-    <script src="/static/js/homepage.js"></script>
-</div></div>
+    <div class="row">
+        <p>Let's pack some lunches!</p>
     </div>
 </div>
+    
 
+</div>
+    <script src="/static/js/homepage.js"></script>   
 </body>
 
 

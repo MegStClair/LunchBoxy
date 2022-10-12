@@ -1,6 +1,7 @@
 h1 {
     font-family: 'Inter Tight', sans-serif; 
-    font-weight: 700;
+    font-weight: 300;
+    font-size: 100px;
     color: black;
   }
 
@@ -10,10 +11,6 @@ body {
   height: 100%;
   overflow: hidden;
 }
-
-/* font-family: 'Inter Tight', sans-serif;
-font-family: 'Roboto', sans-serif; */
-
 
 body {
   background-image: url("img/lunchbox-blue-bckgrd.jpg"); 
@@ -27,5 +24,52 @@ body {
 
 .container {
   background-color: white;
+  border-radius: 15px;
   position: center center;
+  width: 60%;
+  text-align: center;
 }
+
+.button {
+  border-radius: 15px;
+  font-family: 'Inter Tight', sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+  background: #ee6352;
+  padding: 10px 25px 10px 25px;
+  width: 200px;
+  border: solid #ffffff 2px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #ed7c70;
+  text-decoration: none;
+}
+
+
+.form {
+  font-family: 'Inter Tight', sans-serif;;
+  color: black;
+  font-weight: 200px;
+  font-size: 14px;
+}
+
+.submit {
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  font-family: 'Inter Tight', sans-serif;;
+  color: #ffffff;
+  font-size: 14px;
+  background: #3498db;
+  padding: 6px 20px 6px 20px;
+  border: solid #ffffff 2px;
+  text-decoration: none;
+}
+
+.submit:hover {
+  background: #158bd9;
+  text-decoration: none;
+}
+
