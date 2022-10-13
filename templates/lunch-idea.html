@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<head>  
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<!--Stylesheet -->
+<link rel="stylesheet" href="/static/css/lunch-idea.css" />
+</head>
+
 <button><a href="/lunch-idea">New Idea</button></a>
 
-<div id="container"></div>
+
+<div id="container" class="container d-flex justify-content-center align-items-center"></div>
 {% endblock %}
 
 {% block js %}

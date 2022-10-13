@@ -1,0 +1,50 @@
+h1 {
+    font-family: 'Inter Tight', sans-serif; 
+    font-weight: 600;
+    font-size: 30px;
+    color: black;
+}
+
+h2 {
+    font-family: 'Inter Tight', sans-serif; 
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+}
+
+
+#recipe-container {
+    background-color: rgb(237, 227, 122);
+    border-radius: 15px;
+    text-align: left;
+    max-width: 70%;
+  }
+
+#top{
+    background-color: orange;
+    text-align: center;
+}
+
+
+#filling-img {
+    max-width: 90%;
+    display: inline-block;
+}
+
+
+#leftcolumn {
+    background: #2e1cb8;
+}
+
+
+#rightcolumn {
+    background: #CC33FF;
+}
+
+
+#bottom {
+    background: #33FF66;
+    /* display: grid;
+    grid-template-columns: 3fr 3fr 3fr; */
+    align-items: center;
+}
