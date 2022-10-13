@@ -36,10 +36,11 @@ body {
 
 #blurb {
     font-family: 'Inter Tight', sans-serif; 
-    font-weight: 200;
+    font-weight: 400;
     font-size: 24px;
-    color: rgb(43, 42, 42);
+    color: rgb(59, 58, 58);
 }
+
 
 .idea-btn {
     border-radius: 15px;
@@ -58,6 +59,7 @@ body {
     text-decoration: none;
   }
 
+
 .fav-btn {
     border-radius: 15px;
     font-family: 'Inter Tight', sans-serif;
@@ -75,12 +77,13 @@ body {
     text-decoration: none;
   }
 
+
 .all-btn {
     border-radius: 15px;
     font-family: 'Inter Tight', sans-serif;
     color: #ffffff;
     font-size: 20px;
-    background: #659b5e;
+    background: #3498db;
     padding: 10px 25px 10px 25px;
     width: 200px;
     border: solid #ffffff 2px;
@@ -88,6 +91,9 @@ body {
   }
 
 .all-btn:hover {
-    background: #158bd9;
+    background: #5ea4d3;
     text-decoration: none;
   }
+
+
+  

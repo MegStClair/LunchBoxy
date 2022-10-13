@@ -7,11 +7,14 @@
       {% block title %}{% endblock %}
     </title>
 
-    <div class="topnav">
-      <a class="active" href="/profile">Home</a>
-      <a href="/lunch-idea">Lunch Idea</a>
-      <a href="/view-all">All Meals</a>
-      <a href="/favorites">Favorites</a>
+    <div class="dropdown">
+      <button class="dropbtn"><img src="/static/css/img/lunchbox (3).png"></button>
+      <div class="dropdown-content">
+        <a class="active" href="/profile">Home</a>
+        <a href="/lunch-idea">Lunch Idea</a>
+        <a href="/view-all">All Meals</a>
+        <a href="/favorites">Favorites</a>
+    </div>
     </div>
 
     
@@ -19,15 +22,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js" crossorigin></script>
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/static/css/site.css">
-
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;300;600;700&display=swap" rel="stylesheet">
- </head>
+  <!-- Google Icon -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
 
   {% block head %}{% endblock %}
   

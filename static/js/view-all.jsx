@@ -91,7 +91,7 @@ function MealContainer() {
     
     for (const currentMeal of meals) {
         favoriteMeals.push(
-            <div>
+            <div className="container">
             <ShowMealComponent
                 recipeId={currentMeal.recipe_id}
                 title={currentMeal.title}   

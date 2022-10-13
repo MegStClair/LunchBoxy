@@ -1,10 +1,37 @@
-h1 {
-  font-family: 'Inter Tight', sans-serif;
-  color: black;
-}
-
-
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    border: none;
+  }
   
-#create-acct-form {
-  display: none;
-}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 15px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    font-family: 'Inter Tight', sans-serif; 
+    font-weight: 500;
+    font-size: 16px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: rgb(255, 254, 254); color:black;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #40a781;}
