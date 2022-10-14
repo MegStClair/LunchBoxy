@@ -8,13 +8,15 @@ function FillingComponent(props) {
             <div id="leftcolumn" className="col-md-6">
                 <img id="filling-img" src={ props.recipe.image }/>
             </div>
-            <div id="rightcolumn" className="col-md-6">
+
+            <div id="rightcolumn" className="col-md-6 text-center">
             <h1>{ props.recipe.title }</h1>
             
             <p> <b>Ingredients: </b> { props.recipe.ingredients }</p>
             <p> <b>Directions: </b>{ props.recipe.instructions }</p>
         
             <p><b>Tip!</b> { props.recipe.tips }</p>
+            
             <FavoriteButtonComponent
                 recipeId={props.recipe.recipe_id}/>
             </div>
@@ -56,7 +58,7 @@ function FavoriteButtonComponent(props) {
 
     return (
         
-        <button id="fav-button" 
+        <button id="fav-button" className="btn btn-success btn-block"
             recipe_id={ props.recipeId }
             onClick={ addToFavorites }>ADD TO FAVORITES</button>
     );
@@ -68,10 +70,8 @@ function SidesComponent(props) {
 
         return (
             <div id="bottom" className="row">
-                {/* <div className="col"> */}
                 <h2>{ props.recipe.title }</h2>
-                <img className="img" src={ props.recipe.image } width={100}/>
-                {/* </div> */}
+                <img className="img" src={ props.recipe.image } width={25}/>
             </div>
         );
     }
@@ -83,14 +83,14 @@ console.log(props.recipes)
     return (
         
         <div id="recipe-container" >
-            <div id="top" className="row-md-12">LET'S START WITH-</div>
-            <div id="something" className="row-md-12">SOMETHING FRESH</div>
+            <div id="top" className="row-md-12 text-center">Let's start with-</div>
+            <div id="something" className="row-md-12 text-center">SOMETHING FILLING:</div>
             <div id="filling" className="row">
             <FillingComponent recipe={props.recipes.filling}/>
             </div>
-            <div id="somethings" className="row">
-                <div className="col-md-4">SOMETHING CRUNCHY</div>
-                <div className="col-md-8">SOMETHING FRESH</div>
+            <div id="something" className="row">
+                <div className="col-md-4 text-center">SOMETHING CRUNCHY:</div>
+                <div className="col-md-8 text-center">SOMETHING FRESH:</div>
             </div>
             <div id="sides" className="row">
             <div className="col-md-4"><SidesComponent recipe={props.recipes.crunchy}/></div>

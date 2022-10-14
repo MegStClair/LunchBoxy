@@ -91,7 +91,7 @@ function MealContainer() {
     
     for (const currentMeal of meals) {
         favoriteMeals.push(
-            <div className="container">
+            <div className="meal-card">
             <ShowMealComponent
                 recipeId={currentMeal.recipe_id}
                 title={currentMeal.title}   
@@ -106,11 +106,17 @@ function MealContainer() {
         
             <br/><br/>
             </div>
+        
         );
     }
 
     return (
-        <div className="grid">{favoriteMeals}</div>
+        <div className="container">
+            <div id="all-container">
+            <div id="top" className="row-md-12">Check out all of our meals:</div>
+            <div className="grid">{favoriteMeals}</div>
+            </div>
+        </div>
     );
 
     }

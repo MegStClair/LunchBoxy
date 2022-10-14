@@ -1,15 +1,22 @@
+body {
+    font-family: 'Inter Tight', sans-serif;
+}
+
 h1 {
-    font-family: 'Inter Tight', sans-serif; 
     font-weight: 600;
     font-size: 30px;
     color: black;
 }
 
 h2 {
-    font-family: 'Inter Tight', sans-serif; 
     font-weight: 600;
     font-size: 20px;
     color: black;
+    text-align: center;
+}
+
+p {
+    text-align: left;
 }
 
 
@@ -23,6 +30,11 @@ h2 {
 #top{
     background-color: orange;
     text-align: center;
+    height: 100px;
+    font-family: 'Inter Tight', sans-serif; 
+    font-weight: 600;
+    font-size: 40px;
+    color: black;
 }
 
 
@@ -34,6 +46,7 @@ h2 {
 
 #leftcolumn {
     background: #2e1cb8;
+    align-items: center;
 }
 
 
@@ -47,4 +60,31 @@ h2 {
     /* display: grid;
     grid-template-columns: 3fr 3fr 3fr; */
     align-items: center;
+}
+
+#fav-button {
+    border-radius: 15px;
+    font-family: 'Inter Tight', sans-serif;
+    color: #ffffff;
+    font-size: 12px;
+    background: #ff7f11;
+    padding: 10px 25px 10px 25px;
+    width: 200px;
+    border: solid #ffffff 2px;
+    text-decoration: none;
+  }
+  
+#fav-button:hover {
+    background: #fe8e2d;
+    text-decoration: none;
+}
+
+#something {
+    text-align: center;
+    padding: 15px;
+    font-weight: 500;
+}
+
+.container {
+    background-color: #33FF66;
 }

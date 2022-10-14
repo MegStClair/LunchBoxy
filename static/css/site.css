@@ -35,3 +35,13 @@
   .dropdown:hover .dropdown-content {display: block;}
   
   .dropdown:hover .dropbtn {background-color: #40a781;}
+
+
+  #header {
+    height: 40px;
+    background: #FF6633;
+    border-radius: 10px;
+    border: 1px solid #eb521f;
+    margin: 5px;
+    text-align: center;
+}
