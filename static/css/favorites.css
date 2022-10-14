@@ -2,7 +2,8 @@
 body {
   font-family: 'Inter Tight', sans-serif; 
   color: #000;
-  background-image: url("img/scattered-food-left.jpg"); 
+  /* background-image: url("img/scattered-food-left.jpg");  */
+  background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -34,8 +35,11 @@ h2 {
 
 #top{
   text-align: center;
-  height: 60px;
-  background-color: white;
+  height: 80px;
+  font-family: 'Inter Tight', sans-serif; 
+  font-weight: 600;
+  font-size: 30px;
+  color: black;
 }
 
 #remove-button{

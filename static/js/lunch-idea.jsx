@@ -1,7 +1,6 @@
 // SHOW LUNCH IDEA
 
 function FillingComponent(props) {
-    console.log(props);
     // props: recipe_id, tag, title, ingredients, instructions, tip    
     return (
         <div className="row">

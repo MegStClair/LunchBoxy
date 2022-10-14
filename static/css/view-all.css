@@ -4,8 +4,7 @@ body {
   font-family: 'Inter Tight', sans-serif; 
   color: #000;
   line-height: 2;
-  -webkit-font-smoothing: antialiased;
-  background-image: url("img/scattered-food.jpg"); 
+  background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
