@@ -1,22 +1,87 @@
-/* #favs-container {
-    background-color: rgb(237, 227, 122);
-    border-radius: 15px;
-    text-align: left;
-    max-width: 70%;
-  } */
+
+body {
+  font-family: 'Inter Tight', sans-serif; 
+  color: #000;
+  background-image: url("img/scattered-food-left.jpg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  backdrop-filter: blur(5px);
+  color: #000;
+}
+
+h2 {
+  font-family: 'Inter Tight', sans-serif; 
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
 
 .grid {
-    display: grid; 
-    grid-auto-flow: column; 
-    grid-auto-rows: 1fr; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 1fr 1fr; 
-    gap: 5px 5px; 
-    background-color:chocolate;
-    max-width: 100%; 
-    height: 300px; 
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px 5px;
+  justify-items: center;
+}
 
-  .container {
-    background-color: #33FF66;
-  }
+.fav {
+  background-color: #ee6352;
+  border-radius: 15px;
+  /* text-align: center; */
+}
+
+#top{
+  text-align: center;
+  height: 60px;
+  background-color: white;
+}
+
+#remove-button{
+  border-radius: 15px;
+    font-family: 'Inter Tight', sans-serif;
+    color: #ffffff;
+    font-size: 12px;
+    background: #3498db;
+    padding: 10px 25px 10px 25px;
+    width: 200px;
+    border: solid #ffffff 2px;
+    text-decoration: none;
+}
+
+#remove-button:hover {
+  background: #5ea4d3;
+  text-decoration: none;
+}
+
+
+#refresh {
+  margin: 5px;
+  text-align: center;
+}
+
+
+.refresh {
+  background-color: #ee6352;
+  border-radius: 15px;
+  color: white;
+  padding: 16px;
+  border: none;
+}
+
+.refresh:hover {
+  background: #ed7c70;
+}
+
+
+#favs-container {
+  background-color: white;
+  border-radius: 15px;
+  width: 950px;
+  justify-content: center;
+  width: 940px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

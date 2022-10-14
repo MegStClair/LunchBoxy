@@ -10,8 +10,15 @@ integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG
 <link rel="stylesheet" href="/static/css/favorites.css" />
 </head>
 
-<h1>{{name}}&#180;s Favorites:</h1>
-<div id="container"></div>
+<div id="top"><h1>{{name}}&#180;s Favorites:</h1></div>
+
+<div id="container" class="container d-flex justify-content-center align-items-center"></div>
+
+<div id="refresh">
+    <button class="refresh"><a href="/favorites"><img src="/static/css/img/refresh.png"></a></button> 
+</div>
+
+
 {% endblock %}
 
 {% block js %}

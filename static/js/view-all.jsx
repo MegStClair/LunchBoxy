@@ -111,11 +111,9 @@ function MealContainer() {
     }
 
     return (
-        <div className="container">
-            <div id="all-container">
+        <div id="all-container">
             <div id="top" className="row-md-12">LunchBoxy's Meals</div>
             <div className="grid">{allMeals}</div>
-            </div>
         </div>
     );
 
