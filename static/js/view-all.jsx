@@ -87,10 +87,10 @@ function MealContainer() {
             setMeals(data)})
         }, [])
     
-    const favoriteMeals = [];
+    const allMeals = [];
     
     for (const currentMeal of meals) {
-        favoriteMeals.push(
+        allMeals.push(
             <div className="meal-card">
             <ShowMealComponent
                 recipeId={currentMeal.recipe_id}
@@ -113,8 +113,8 @@ function MealContainer() {
     return (
         <div className="container">
             <div id="all-container">
-            <div id="top" className="row-md-12">Check out all of our meals:</div>
-            <div className="grid">{favoriteMeals}</div>
+            <div id="top" className="row-md-12">LunchBoxy's Meals</div>
+            <div className="grid">{allMeals}</div>
             </div>
         </div>
     );

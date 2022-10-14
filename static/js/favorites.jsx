@@ -83,7 +83,11 @@ function AllFavoritesContainer() {
     
     console.log(userFavorites)
     return (
-        <div className="grid">{userFavorites}</div>
+        <div id="favs-container">
+            <div id="something" className="row-md-12 text-center"></div>
+            <div className="grid">{userFavorites}</div>
+        </div>
+        
     );
 
     }

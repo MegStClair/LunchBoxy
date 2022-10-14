@@ -6,7 +6,7 @@ function FillingComponent(props) {
     return (
         <div className="row">
             <div id="leftcolumn" className="col-md-6">
-                <img id="filling-img" src={ props.recipe.image }/>
+                <img id="filling-img" src={ props.recipe.image } className="rounded mx-auto d-block"/>
             </div>
 
             <div id="rightcolumn" className="col-md-6 text-center">
@@ -71,7 +71,7 @@ function SidesComponent(props) {
         return (
             <div id="bottom" className="row">
                 <h2>{ props.recipe.title }</h2>
-                <img className="img" src={ props.recipe.image } width={25}/>
+                <img src={ props.recipe.image } className="rounded mx-auto d-block"/>
             </div>
         );
     }
@@ -83,14 +83,14 @@ console.log(props.recipes)
     return (
         
         <div id="recipe-container" >
-            <div id="top" className="row-md-12 text-center">Let's start with-</div>
-            <div id="something" className="row-md-12 text-center">SOMETHING FILLING:</div>
+            <div id="top" className="row-md-12 text-center">Let's pack a lunch with:</div>
+            <div id="something" className="row-md-12 text-center">SOMETHING FILLING</div>
             <div id="filling" className="row">
             <FillingComponent recipe={props.recipes.filling}/>
             </div>
             <div id="something" className="row">
-                <div className="col-md-4 text-center">SOMETHING CRUNCHY:</div>
-                <div className="col-md-8 text-center">SOMETHING FRESH:</div>
+                <div className="col-md-4 text-center">SOMETHING CRUNCHY</div>
+                <div className="col-md-8 text-center">SOMETHING FRESH</div>
             </div>
             <div id="sides" className="row">
             <div className="col-md-4"><SidesComponent recipe={props.recipes.crunchy}/></div>
