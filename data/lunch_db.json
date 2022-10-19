@@ -76,7 +76,7 @@
     {
         "tag": "crunchy",
         "title": "Crackers",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://img.freepik.com/free-photo/cracker-cookies-isolated-white-background_93675-130779.jpg?w=996&t=st=1666067526~exp=1666068126~hmac=840f786c57710776b47ae0383f18e7a3b73e6fca84789ce47806cc0f8204e5d4",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -84,7 +84,7 @@
     {
         "tag": "crunchy",
         "title": "Pretzels",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://img.freepik.com/free-photo/glazed-salted-pretzels-isolated-white-background_93675-129944.jpg?w=996&t=st=1666067608~exp=1666068208~hmac=7ecfc4c893688b5298aa74ed894e61cc5fc22ad7fcbf9a4a110c8f78bea5",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -92,7 +92,7 @@
     {
         "tag": "crunchy",
         "title": "Popcorn",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://img.freepik.com/free-photo/caramel-popcorn-white_1339-7822.jpg?w=996&t=st=1666067658~exp=1666068258~hmac=7c97e9a959d11435a6ce4180c9d7841ba85812b04da4498c278e1cfdf647dfd8",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -100,7 +100,7 @@
     {
         "tag": "crunchy",
         "title": "Nuts",
-        "image": "https://cdn.pixabay.com/photo/2016/10/25/12/56/almonds-1768792_960_720.jpg",
+        "image": "https://img.freepik.com/free-photo/mixed-nuts_1308-39988.jpg?w=996&t=st=1666067695~exp=1666068295~hmac=40dfb77703daf96ddb0e6f4eef77bbe1b8142afec68d3a81436479090dc6a9cf",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -108,7 +108,7 @@
     {
         "tag": "crunchy",
         "title": "Tortilla Chips",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://img.freepik.com/free-photo/potato-chips_144627-16688.jpg?w=996&t=st=1666067728~exp=1666068328~hmac=9579e3263a21faabc1d3fa2aec455f2a9a0aa6ce821592f635fa1a0745d204cb",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null" 
@@ -116,7 +116,7 @@
     {
         "tag": "fresh",
         "title": "Cherry Tomatoes ",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://as1.ftcdn.net/v2/jpg/01/64/30/48/1000_F_164304806_Rlrg0fnFG3ndxC2JRz5aKnTUtypfuJDC.jpg",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null" 
@@ -124,7 +124,7 @@
     {
         "tag": "fresh",
         "title": "Bell Peppers",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://t3.ftcdn.net/jpg/01/69/36/70/240_F_169367075_ceCNGjaoVrb1gxpLk3xFdnxKbFRQTHJw.jpg",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null" 
@@ -132,7 +132,7 @@
     {
         "tag": "fresh",
         "title": "Grapes",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://img.freepik.com/free-photo/green-red-grape-isolated-white_1232-1957.jpg?w=996&t=st=1666068062~exp=1666068662~hmac=fba6f295f26f3e5f8a39c557f6bc34792ec6a5f9ceb98be88f73e4bf818567f5",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null" 
@@ -140,7 +140,7 @@
     {
         "tag": "fresh",
         "title": "Strawberries",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://img.freepik.com/free-photo/red-fresh-strawberries-with-green-leaves_114579-10506.jpg?w=996&t=st=1666067843~exp=1666068443~hmac=12ac8f35726b6e781c818f2e57b4cfd6d4c689ecd0de3341ac1f7d598a7b3ab0",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -148,7 +148,7 @@
     {
         "tag": "fresh",
         "title": "Blueberries",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi29mOalQDV_Z3OQs5RojJxdAZhjnDjSMYg&usqp=CAU",
+        "image": "https://img.freepik.com/free-photo/blueberry_74190-7796.jpg?w=740&t=st=1666068097~exp=1666068697~hmac=9020bfcd27b348d42b4cd4b9e26b094194d9cab4cbd41ae90c9661e86ef66403",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null" 
@@ -156,7 +156,7 @@
     {
         "tag": "fresh",
         "title": "Mandarin Oranges",
-        "image": "",
+        "image": "https://as2.ftcdn.net/v2/jpg/01/84/63/75/1000_F_184637500_ESwezguJFtR2diA8VV8btmuuoTr6JQTO.jpg",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -164,7 +164,7 @@
     {
         "tag": "fresh",
         "title": "Watermelon",
-        "image": "",
+        "image": "https://img.freepik.com/free-photo/slice-watermelon-white-background_93675-128140.jpg?w=996&t=st=1666068200~exp=1666068800~hmac=c113ca91458338f0f661b20bfe9a5202f7f9921289a001b5f635ff52a24a0051",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null" 
@@ -172,7 +172,7 @@
     {
         "tag": "fresh",
         "title": "Pears",
-        "image": "",
+        "image": "https://img.freepik.com/free-photo/fresh-wet-pear-fruit_144627-17214.jpg?w=996&t=st=1666068229~exp=1666068829~hmac=73633773164a2bb618c64d1b98f58537d748b3cb88ce94edcf64f8deeba6092e",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -180,7 +180,7 @@
     {
         "tag": "fresh",
         "title": "Banana",
-        "image": "",
+        "image": "https://img.freepik.com/premium-photo/banana-slices-white-wall_55883-9069.jpg?w=996",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null" 
@@ -188,7 +188,7 @@
     {
         "tag": "fresh",
         "title": "Carrots",
-        "image": "",
+        "image": "https://as1.ftcdn.net/v2/jpg/01/50/82/54/1000_F_150825461_J1zxlojreDmof9FLH2kogBbxUopSqNbz.jpg",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -196,7 +196,7 @@
     {
         "tag": "fresh",
         "title": "Cucumber",
-        "image": "",
+        "image": "https://img.freepik.com/premium-photo/slice-cucumber-isolated-white-clipping-path_26628-393.jpg?w=996",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  
@@ -204,7 +204,7 @@
     {
         "tag": "fresh",
         "title": "Celery",
-        "image": "",
+        "image": "https://img.freepik.com/free-photo/fresh-celery-isolated_144627-30021.jpg?w=996&t=st=1666067833~exp=1666068433~hmac=9f1de567b7c38de754e1c5286a8b18b26e6f8e75a23c69a76a15a5f92e3430d0",
         "ingredients": "Null",
         "instructions": "Null",
         "tips": "Null"  

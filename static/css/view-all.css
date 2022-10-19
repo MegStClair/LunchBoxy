@@ -5,9 +5,6 @@ body {
   color: #000;
   line-height: 2;
   background-color: white;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
   background-attachment: fixed;
   backdrop-filter: blur(5px);
   color: #000;

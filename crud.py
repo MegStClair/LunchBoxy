@@ -102,7 +102,6 @@ def get_random_by_tag(tag):
     return random_food
 
 
-
 ######### FAVORITES CRUD #########
 
 def create_favorite(user_id, recipe_id):

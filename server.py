@@ -80,7 +80,6 @@ def show_profile():
         return redirect ('/')
 
 
-
 ###################### LUNCH IDEA ROUTES ######################
 
 @app.route("/lunch-idea")     
@@ -114,7 +113,6 @@ def show_lunch_json():
     return jsonify(recipes)
 
 
-
 ###################### VIEW-ALL ROUTES ######################
 
 @app.route("/view-all")
@@ -130,7 +128,6 @@ def view_all_json():
     all_recipes = crud.get_all_by_tag("filling")
     
     return jsonify(all_recipes)
-
 
 
 ###################### FAVORITES ROUTES ######################
@@ -192,9 +189,6 @@ def remove_from_favorites():
     db.session.commit()
 
     return { "success": True }
-
-
-
 
 
 
