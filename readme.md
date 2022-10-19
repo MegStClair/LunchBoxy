@@ -19,7 +19,7 @@
 <p class="has-line-data" data-line-start="19" data-line-end="20">At the click of a button, LunchBoxy generates a Lunch Idea that consists of a main item and side components. Users can also view all the meals and add them to favorites for easy reference. Future phases will include the ability to swap out side components, plan a week’s worth of meals, and generate a grocery list.</p>
 <h2 class="code-line" data-line-start=21 data-line-end=22 ><a id="Running_the_App_21"></a>Running the App</h2>
 <p class="has-line-data" data-line-start="22" data-line-end="23">LunchBoxy has not yet been deployed, so here is how to run the app locally on your machine:</p>
-<h5 class="code-line" data-line-start=23 data-line-end=24 ><a id="Create_and_activate_a_Python_virtual_enrivonment_and_install_dependencies_23"></a>Create and activate a Python virtual enrivonment and install dependencies</h5>
+<h4 class="code-line" data-line-start=23 data-line-end=24 ><a id="Create_and_activate_a_Python_virtual_enrivonment_and_install_dependencies_23"></a>Create and activate a Python virtual enrivonment and install dependencies</h5>
 <pre><code class="has-line-data" data-line-start="25" data-line-end="29" class="language-python">virtualenv env
 source env/bin/activate
 pip3 install -r requirements.txt
@@ -27,7 +27,7 @@ pip3 install -r requirements.txt
 <p class="has-line-data" data-line-start="29" data-line-end="30">If you are on a Windows, you may need to clear stale pid files using the following command:</p>
 <pre><code class="has-line-data" data-line-start="31" data-line-end="33" class="language-python">sudo pg_ctlcluster <span class="hljs-number">13</span> main start
 </code></pre>
-<h5 class="code-line" data-line-start=33 data-line-end=34 ><a id="Run_the_server_file_33"></a>Run the server file</h5>
+<h4 class="code-line" data-line-start=33 data-line-end=34 ><a id="Run_the_server_file_33"></a>Run the server file</h5>
 <pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-python">python3 server.py
 </code></pre>
 <p class="has-line-data" data-line-start="37" data-line-end="38">Verify the deployment by navigating to your server address in your preferred browser</p>
